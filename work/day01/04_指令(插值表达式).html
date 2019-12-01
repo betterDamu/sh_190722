@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  vue的特点
+        1. 声明式渲染(数据的单向流)
+        2. 响应式
+            以后项目中所有的数据一定要放到data中
+        3. 数据双向流
+     -->
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+<!--插值表达式: {{}}-->
+<div id="app">
+    <span>{{flag ? "正确":"错误"}}</span>
+    <span>{{new Date()}}</span>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"我是插值表达式",
+            flag:true
+        },
+    })
+</script>
+</html>

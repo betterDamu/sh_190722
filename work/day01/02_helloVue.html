@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  vue的特点
+        1. 声明式渲染
+        2. 响应式数据
+        3. 数据双向流
+     -->
+    <script src="./src/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="请输入数据" v-model="msg">
+        {{msg}}
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello vue"
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  vue的特点
+        1. 声明式渲染(数据的单向流)
+        2. 响应式
+            以后项目中所有的数据一定要放到data中
+        3. 数据双向流
+     -->
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-text="msg"></span>
+        <div v-html="htmlCode"></div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"数据绑定相关的vue指令",
+            htmlCode:"<span>123</span>"
+        }
+    })
+</script>
+</html>

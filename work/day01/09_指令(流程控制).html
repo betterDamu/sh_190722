@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div @click="flag = !flag">
+            <!--<span v-if="flag">流程1</span>
+            <span v-else-if="flag">流程2</span>
+            <span v-else>流程3</span>-->
+
+            <span v-if="flag">流程1</span>
+            <span v-else>流程2</span>
+
+            <span v-show="flag">流程1</span>
+            <span v-show="!flag">流程2</span>
+        </div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            flag:true
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 120px;
+            text-align: center;
+        }
+    </style>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in list">
+            <span>序号:{{index + 1}};</span>
+            <span>姓名:{{item.name}};</span>
+            <span>年龄:{{item.age}};</span>
+            <span>老婆:{{item.wife}}</span>
+            <button @click="del(index)">del</button>
+            <button @click="update(index)">update</button>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+     new Vue({
+        el:"#app",
+        data:{
+            list:[
+                {name:"熊健",age:38,wife:"你们"},
+                {name:"达姆",age:18,wife:"冬雨"},
+                {name:"芳芳",age:28,wife:"香香"},
+                {name:"老付",age:58,wife:"老刘"}
+            ]
+        },
+        methods:{
+            del(index){
+                this.list.splice(index,1)
+            },
+            update(index){
+                this.list.splice(index,1,{
+                    name:"betterdamu",
+                    age:28,
+                    wife:"betterdy"
+                })
+                /*this.list[index] = {
+                    name:"betterdamu",
+                    age:28,
+                    wife:"betterdy"
+                }*/
+            }
+        }
+    })
+</script>
+</html>

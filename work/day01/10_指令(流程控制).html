@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in list">{{index}}：{{item}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(val,key,index) in obj">{{index}}:{{key}}:{{val}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            list:["a","b","c"],
+            obj:{
+                name:"damu",
+                age:18,
+                wife:"周冬雨"
+            }
+        }
+    })
+</script>
+</html>

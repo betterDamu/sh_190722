@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+        }
+    </style>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div @click="handleC1">
+            <div @click="handleC2">
+                <span v-text="msg" @click.stop="handleC3" ></span>
+            </div>
+        </div>
+
+        <a href="http://www.atguigu.com" @click.prevent="handleA">回娘家</a>
+
+        <div @click.self="handleC1" id="wrap">
+            <div @click="handleC2" id="inner">
+                <span v-text="msg2" @click.self="handleC3" ></span>
+            </div>
+        </div>
+
+        <input type="text" v-model="msg2" @keydown.space="handleKD">
+
+        <input type="text" v-model="msg2" @keydown.once="handleKD">
+
+        <br>
+        <span @click.left="handleKD">left</span>
+        <span @click.right="handleKD">right</span>
+        <span @click.middle="handleKD">middle</span>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"数据绑定相关的vue指令",
+            msg2:"test",
+            htmlCode:"<span>123</span>"
+        },
+        methods:{
+            handleKD(){
+              console.log("keyDown")
+            },
+            handleA(){
+                console.log("handleA")
+            },
+            handleC1(){
+                console.log("handleC1")
+            },
+            handleC2(){
+                console.log("handleC2")
+            },
+            handleC3(){
+                console.log("handleC3")
+            }
+        }
+    })
+</script>
+</html>

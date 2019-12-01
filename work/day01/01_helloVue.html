@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  vue的特点
+        1. 声明式渲染(数据的单向流)
+        2. 响应式
+            以后项目中所有的数据一定要放到data中
+        3. 数据双向流
+     -->
+    <script src="./src/vue.min.js"></script>
+</head>
+<body>
+    <!--插值表达式: {{}}-->
+    <div id="app">
+        <span>{{msg}}</span>
+        <button v-on:click="handleC(123)">click</button>
+    </div>
+</body>
+<script>
+  //mvvm
+   var vm = new Vue({
+       el:"#app",
+       data:{
+           text:undefined,
+           msg:"hello vue",
+           obj:{
+               msg:"你的课上没有酒 我却醉的像条狗"
+           }
+       },
+       methods:{
+           handleC(val){
+               this.msg = "hello vue vue"
+           }
+       }
+   })
+
+    /*vm.msg2 = "byebye xj";
+    setTimeout(()=>{
+        // vm.msg = "hello vue vue";
+        vm.msg2 = "byebye xj2";
+    },1000)*/
+
+</script>
+</html>

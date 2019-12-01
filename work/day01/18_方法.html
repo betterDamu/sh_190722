@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        firstName: <input type="text" v-model="firstName"> <br>
+        lastName: <input type="text" v-model="lastName"> <br>
+        fullName: <input type="text" v-model="fullName()"> <br>
+        {{test}}
+    </div>
+</body>
+<script>
+    /*
+        1. 方法不要定义在data中
+        2. 指令中的数据最好不要来至于方法
+    */
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            firstName:"T",
+            lastName:"Mac",
+            test:"测试"
+        },
+        methods:{
+            fullName(){
+                console.log("----")
+                return `${this.firstName }-${this.lastName}`
+            }
+        }
+    })
+</script>
+</html>

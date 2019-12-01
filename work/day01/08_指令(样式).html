@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .yellow{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+        .pink {
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div :class="className" class="yellow"></div>
+        <button @click="handleC">click</button>
+
+        <div :style="styleObj"></div>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            className:{
+                pink:false
+            },
+            styleObj:[
+                {
+                    width:"100px"
+                },
+                {
+                    height:"100px",
+                    background:"black"
+                }
+            ]
+        },
+        methods:{
+            handleC(){
+                this.className.pink = !this.className.pink
+            }
+        }
+    })
+</script>
+</html>

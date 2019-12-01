@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        firstName: <input type="text" v-model="firstName"> <br>
+        lastName: <input type="text" v-model="lastName"> <br>
+        fullName: <input type="text" v-model="fullName"> <br>
+        {{test}}
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            firstName:"T",
+            lastName:"Mac",
+            test:"测试"
+        },
+        computed:{
+            /*
+                当计算属性的依赖产生变化的时候 计算属性对应的get方法会被重新调用
+                一旦get方法被调用 计算属性的响应式规则就被触发 界面会得到更新
+
+                计算属性是有缓存的
+            */
+            fullName:{
+                get(){
+                    console.log("---")
+                    return `${this.firstName}-${this.lastName}`
+                },
+                set(val){
+                    let arr = val.split("-");
+                    this.firstName = arr[0];
+                    this.lastName = arr[1];
+                }
+            }
+        }
+    })
+</script>
+</html>
