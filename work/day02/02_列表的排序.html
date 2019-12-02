@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="searchName">
+        <ul>
+            <li v-for="(val,key,index) in filterList" :key="index">
+                {{val.name}} ---> {{val.age}} ---> {{val.assess}}
+            </li>
+        </ul>
+        <button @click="sortType = 1">按年龄升序</button>
+        <button @click="sortType = -1">按年龄降序</button>
+        <button @click="sortType = 0">按年龄的原本顺序</button>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            searchName:"",
+            sortType:0,
+            list:[
+                {name:"xj",age:28,assess:"醉的像条狗"},
+                {name:"ff1",age:39,assess:"......"},
+                {name:"ff4",age:42,assess:"......"},
+                {name:"ff5",age:43,assess:"......"},
+                {name:"laofu",age:38,assess:"我的鸟呢"},
+                {name:"ff2",age:40,assess:"......"},
+                {name:"ff3",age:41,assess:"......"},
+                {name:"damu",age:18,assess:"肥且pink"}
+            ]
+        },
+        computed:{
+            filterList(){
+                let filterArr =  this.list.filter( item => item.name.includes(this.searchName));
+
+                switch (this.sortType){
+                    case 1: // 按年龄升序
+                        filterArr.sort((a,b)=>{
+                            return a.age - b.age;
+                        })
+                        break;
+                    case -1:
+                        filterArr.sort((a,b)=>{
+                            return b.age - a.age;
+                        })
+                        break;
+                }
+
+                return filterArr;
+            }
+        }
+    })
+</script>
+</html>

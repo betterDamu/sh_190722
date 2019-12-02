@@ -10,6 +10,7 @@ vue的特点:
 1. 指令
     数据绑定
         {{data中定义的数据}}  v-text="data中定义的数据"  v-html="data中定义的数据"
+        v-model : 数据双向绑定
     事件
         v-on:事件名="methods中定义的方法"
         简写形式: v-on: 换成 @  

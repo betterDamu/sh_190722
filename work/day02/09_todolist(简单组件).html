@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+        数据驱动的编程思想
+     -->
+    <script src="./src/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="请输入待办任务" v-model="msg">
+        <button v-on:click="handleC">add</button>
+        <to-list :list="list" ></to-list>
+    </div>
+</body>
+<script>
+    var todolist = {
+        props:["list"],
+        template:`<ul><li v-for="item in list">{{item}}</li></ul>`
+    }
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"",
+            list:["吃饭","睡觉","玩熊健"]
+        },
+        methods:{
+            handleC(){
+                if(this.msg){
+                    this.list.push(this.msg)
+                    this.msg = ""
+                }
+            }
+        },
+        components:{
+            "to-list":todolist
+        }
+    })
+</script>
+</html>

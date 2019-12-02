@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="searchName">
+        <ul>
+            <li v-for="(val,key,index) in filterList" :key="index">
+                {{val.name}} ---> {{val.age}} ---> {{val.assess}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            searchName:"",
+            list:[
+                {name:"damu",age:18,assess:"肥且pink"},
+                {name:"xj",age:28,assess:"醉的像条狗"},
+                {name:"laofu",age:38,assess:"我的鸟呢"},
+                {name:"ff1",age:39,assess:"......"},
+                {name:"ff4",age:42,assess:"......"},
+                {name:"ff5",age:43,assess:"......"},
+                {name:"ff2",age:40,assess:"......"},
+                {name:"ff3",age:41,assess:"......"}
+            ]
+        },
+        computed:{
+            filterList(){
+                return this.list.filter( item => item.name.includes(this.searchName))
+            }
+        }
+    })
+</script>
+</html>

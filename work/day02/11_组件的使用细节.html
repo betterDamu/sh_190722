@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <v-button @click="handleC" @damu="handleDamu"></v-button>
+    </div>
+</body>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"test"
+        },
+        methods:{
+            handleC(){
+                console.log("app")
+            },
+            handleDamu(){
+                console.log("handleDamu")
+            }
+        },
+        components:{
+            "v-button":{
+                template:`<button @click="handleC">{{btn}}</button>`,
+                data(){
+                    return {
+                        btn:"按钮"
+                    }
+                },
+                methods:{
+                    handleC(){
+                        this.$emit("damu")
+                    }
+                }
+            }
+        }
+    })
+
+</script>
+</html>

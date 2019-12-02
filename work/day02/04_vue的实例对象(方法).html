@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script>
+    var appNode = document.querySelector("#app");
+    var vm = new Vue({
+        //el:"#app", // 1. 指定了挂载节点   2.指定了vue要解析的模板
+        template:`<span style="color: pink">{{msg}}</span>`,
+        data:{
+            msg:"test"
+        }
+    })
+
+    vm.$mount(appNode)
+</script>
+</html>

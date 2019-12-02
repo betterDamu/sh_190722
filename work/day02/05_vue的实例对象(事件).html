@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"test"
+        }
+    })
+
+    //vue事件
+    vm.$on("damu",function(a,b,c){
+        console.log("我被触发了",this === vm,a,b,c)
+    })
+
+    setTimeout(()=>{
+        vm.$off("damu")
+    },4000)
+
+    setInterval(()=>{
+        vm.$emit("damu",1,2,3)
+    },1000)
+
+</script>
+</html>

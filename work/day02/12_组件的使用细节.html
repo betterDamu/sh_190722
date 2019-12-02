@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pink{
+            color: pink;
+        }
+    </style>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--模板再覆盖组件的时候 会将组件标签身上的非props特性的属性全部继承下来-->
+        <!--
+            props属性
+            非props属性
+            vue的指令
+        -->
+        <v-div class="pink" v-show="true" msg="test"></v-div>
+    </div>
+</body>
+<script>
+    /*
+        1. 一个vue实例就是一个vue组件
+        2. 非根组件的定义中不能使用el data必须是一个函数
+        3. 组件上所有的事件都是vue的自定义事件
+        4. 组件标签上的非props特性的属性 最终模板会继承下来
+        5. 组件的命名要符合html5的嵌套规则 如果有冲突 使用is属性来解决
+    */
+
+    var vm = new Vue({
+        el:"#app",
+        components:{
+            "v-div":{
+                props:["msg"],
+                template:`<div>{{msg}}</div>`,
+            }
+        }
+    })
+
+</script>
+</html>

@@ -24,14 +24,21 @@
             lastName:"Mac",
             fullName:"T-Mac"
         },
-        watch:{
+        /*watch:{
             firstName(val){
                 this.fullName = `${val}-${this.lastName}`
             },
             lastName(val){
                 this.fullName = `${this.firstName}-${val}`
             }
-        }
+        }*/
+    })
+
+    vm.$watch("firstName",function(val){
+        this.fullName = `${val}-${this.lastName}`
+    })
+    vm.$watch("lastName",function(val){
+        this.fullName = `${this.firstName}-${val}`
     })
 </script>
 </html>

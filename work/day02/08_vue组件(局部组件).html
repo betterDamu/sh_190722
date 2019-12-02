@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <damu></damu>
+    </div>
+
+    <div id="app2">
+        <damu></damu>
+    </div>
+</body>
+<script>
+
+    //在子组件中 不能使用el选项  (局部组件)
+    var damu = {
+        template:"<h1>{{msg}}</h1>",
+        data(){
+            return {
+                msg:"戏子入画 一生天涯 ; 幸福右边 荒无人烟"
+            }
+        }
+    }
+
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"test"
+        },
+        components:{
+            damu
+        }
+    })
+
+    var vm2 = new Vue({
+        el:"#app2",
+        data:{
+            msg:"test"
+        },
+        components:{
+            damu
+        }
+    })
+</script>
+</html>

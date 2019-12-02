@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"test"
+        }
+    })
+
+    //vue事件
+    function one(){
+        console.log("一")
+    }
+    vm.$on("damu",one)
+
+    function two(){
+        console.log("二")
+    }
+    vm.$on("damu",two)
+
+    function three(){
+        console.log("三")
+    }
+    vm.$on("damu",three)
+
+
+    function four(){
+        console.log("四")
+    }
+    vm.$on("damu",four)
+
+
+    vm.$off("damu",two)
+
+    setTimeout(()=>{
+        vm.$emit("damu")
+    },1000)
+
+
+</script>
+</html>
