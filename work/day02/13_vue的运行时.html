@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pink{
+            color: pink;
+        }
+    </style>
+    <script src="./src/vue.runtime.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--<v-div class="pink" v-show="true" msg="test"></v-div>-->
+    </div>
+</body>
+<script>
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        //el:"#app",
+        render(createVNode){
+            return createVNode("v-div")
+        },
+        components:{
+            "v-div":{
+                // template:`<div>123</div>`,
+                render(createVNode){
+                    return createVNode("div",this.msg)
+                },
+                data(){
+                    return {
+                        msg:1233
+                    }
+                }
+            }
+        }
+    })
+
+    vm.$mount("#app")
+
+</script>
+</html>

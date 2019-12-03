@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text{
+            font-size: 20px;
+            opacity: 1;
+            color: red;
+        }
+    </style>
+    <script src="./src/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag = !flag">click</button>
+        <transition name="damu">
+            <div class="text" v-show="flag" ref="damu">
+                戏子入画 一生天涯
+            </div>
+        </transition>
+        <xj ref="xj"></xj>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            flag:true
+        },
+        mounted(){
+            console.log(this.$refs.damu.innerHTML)
+            console.log(this.$refs.xj.msg)
+        },
+        components:{
+            xj:{
+                template:"<p>熊健</p>",
+                data(){
+                    return {
+                        msg:123
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>

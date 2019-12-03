@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text{
+            font-size: 20px;
+            opacity: 1;
+            color: red;
+        }
+
+        .damu-leave-active{transition: 2s opacity}
+        .damu-leave-to{opacity: 0; color: deeppink;}
+        .damu-enter{opacity: 0;color: deeppink;}
+        .damu-enter-active{transition: 2s opacity}
+        .damu-enter-to{opacity: 1; color: red;}
+    </style>
+    <script src="./src/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag = !flag">click</button>
+        <transition name="damu">
+            <div class="text" v-show="flag">
+                戏子入画 一生天涯
+            </div>
+        </transition>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            flag:true
+        }
+    })
+</script>
+</html>

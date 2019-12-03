@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text{
+            font-size: 20px;
+            opacity: 1;
+            color: red;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message | filterDate}}
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message: new Date()
+        },
+        filters:{
+            filterDate(value){
+                return moment(value).format('YYYY-MM-DD HH:mm:ss');
+            }
+        }
+    })
+</script>
+</html>

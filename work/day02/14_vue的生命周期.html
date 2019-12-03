@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  vue的特点
+        1. 声明式渲染
+        2. 响应式数据
+        3. 数据双向流
+     -->
+    <script src="./src/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" placeholder="请输入数据" v-model="msg">
+    {{msg}}
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello vue"
+        },
+        beforeCreate(){console.log("beforeCreate",this)},
+        created(){console.log("created",this.msg)},
+        beforeMount(){console.log("beforeMount",this.msg)},
+        mounted(){console.log("mounted",this.msg)},
+        beforeUpdate(){console.log("beforeUpdate",this.msg)},
+        updated(){console.log("updated",this.msg)},
+        beforeDestroy(){console.log("beforeDestory",this.msg)},
+        destroyed(){console.log("destoryed",this.msg)}
+    })
+</script>
+</html>
