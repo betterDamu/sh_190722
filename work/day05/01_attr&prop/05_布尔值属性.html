@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" id="test"  name="xfz" />
+	</body>
+	<script type="text/javascript">
+	
+		/*
+		 	布尔值属性:property为布尔值的属性
+		 	非布尔值属性:property不为布尔值的属性
+		*/
+		
+		/*
+		 布尔值属性attribute 与 property的同步关系
+			1.property 不会同步 attribute
+			
+			2.如果没有动过property
+				attribute会实时同步property
+			  一旦动了property
+				attribute不会实时同步property
+		*/
+
+			var testNode  =document.querySelector("#test");
+			
+			debugger
+			
+			testNode.setAttribute("checked","xfz1");
+			testNode.setAttribute("checked","xfz2");
+			testNode.setAttribute("checked","xfz3");
+			testNode.setAttribute("checked","xfz4");
+			
+			testNode.checked="xfz5";
+			testNode.checked="xfz6";
+			testNode.checked="xfz7";
+			testNode.checked="xfz8";
+			testNode.checked=false;
+			
+			testNode.setAttribute("checked","xfz9");
+			testNode.setAttribute("checked","xfz10");
+			testNode.setAttribute("checked","xfz11");
+			testNode.setAttribute("checked","xfz12");
+	</script>
+</html>

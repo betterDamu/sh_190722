@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .arc{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border-radius:50%;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <v-child msg="damu"></v-child>
+        <v-child msg="xjj"></v-child>
+        <v-child msg="lff"></v-child>
+    </div>
+</body>
+<script>
+    var child = {
+        props:{
+            msg:String
+        },
+        template:"<span @click='handleC'>{{message}}</span>",
+        data(){
+            return {
+                message:this.msg
+            }
+        },
+        methods:{
+            handleC(){
+                this.bus.$emit("changeText",this.message)
+            }
+        },
+        mounted(){
+            /*var me = this;
+            this.bus.$on("changeText",function (message) {
+                this.message = message;
+            })*/
+
+            this.bus.$on("changeText", (message) => {
+                this.message = message;
+            })
+        }
+    }
+
+
+    Vue.config.productionTip = false;
+    Vue.prototype.bus = new Vue(); // 总线
+    var vm = new Vue({
+        el:"#app",
+        components:{
+            "v-child":child
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .arc{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border-radius:50%;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <v-arc class="arc" :num="num"></v-arc>
+        <v-arc class="arc" :num="num"></v-arc>
+    </div>
+</body>
+<script>
+    //1. 子组件不能直接修改来至于父组件的数据
+    //2. 如果子组件非得修改父组件中的数据 建议要转存一份(不要使用这种方案)
+    var arc = {
+        props:["num"],
+        template:"<i @click='handleC'>{{count}}</i>",
+        data(){
+            return {
+                count:this.num.count
+            }
+        },
+        methods:{
+            handleC(){
+                this.count++
+            }
+        }
+    }
+
+    Vue.config.productionTip = false
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            num:{
+                count:0
+            }
+        },
+        components:{
+            "v-arc":arc
+        }
+    })
+</script>
+</html>

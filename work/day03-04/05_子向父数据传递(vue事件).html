@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .arc{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border-radius:50%;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <script src="./src/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <v-arc class="arc" :count="count" @add="add"></v-arc>
+        <v-arc class="arc" :count="count" @add="add"></v-arc>
+        <i class="arc" style="background: gray">{{appCount}}</i>
+    </div>
+</body>
+<script>
+    //1.父组件传递一个函数给子组件 子组件通过函数的参数往父组件传递数据
+    var arc = {
+        props:{
+            count:Number
+        },
+        template:"<i @click='handleC'>{{arcCount}}</i>",
+        data(){
+            return {
+                arcCount:this.count,
+                step:1,
+            }
+        },
+        methods:{
+            handleC(){
+                this.arcCount += this.step;
+                this.$emit("add",this.step);
+            }
+        }
+    }
+
+
+    Vue.config.productionTip = false
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            count:0,
+            appCount:0
+        },
+        methods:{
+          add(step){
+              this.appCount += step
+          }
+        },
+        components:{
+            "v-arc":arc
+        }
+    })
+</script>
+</html>

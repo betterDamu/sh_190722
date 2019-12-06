@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox"  />
+		<input type="checkbox"  />
+		<input type="checkbox"  />
+		<input type="checkbox"  />
+		<br />
+		<input type="button" id="btn" value="全选" />
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var btn = document.querySelector("#btn");
+			var checkboxs = document.querySelectorAll("input[type='checkbox']");
+			btn.onclick=function(){
+				for(var i=0;i<checkboxs.length;i++){
+					//checkboxs[i].checked=true;
+					checkboxs[i].setAttribute("checked",true);
+				}
+			}
+		}
+	</script>
+</html>
