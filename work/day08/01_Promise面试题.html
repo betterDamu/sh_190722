@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>promise_面试题</title>
+</head>
+<body>
+<!-- 面试题1 -->
+<script type="text/javascript">
+   //宏: 1
+   //微: 2 4
+   // 3 2 4 1
+  setTimeout(()=>{
+    console.log(1)
+  },0)
+
+  Promise.resolve().then(()=>{
+    console.log(2)
+  })
+  Promise.resolve().then(()=>{
+    console.log(4)
+  })
+  console.log(3)
+</script>
+</body>
+</html>
