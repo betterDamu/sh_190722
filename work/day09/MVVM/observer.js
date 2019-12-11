@@ -18,6 +18,7 @@ Observer.prototype = {
         var childObj = observe(val);
 
 
+        //数据劫持!!!!
         Object.defineProperty(data, key, {
             enumerable: true, // 可枚举
             configurable: false, // 不能再define
@@ -39,6 +40,8 @@ Observer.prototype = {
     }
 };
 
+// value:data中的数据
+// vm: MVVM的实例对象
 function observe(value, vm) {
     if (!value || typeof value !== 'object') {
         return;

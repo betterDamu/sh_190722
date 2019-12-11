@@ -1,15 +1,16 @@
+import Vue from "vue";
 import Vuex from "vuex";
-import Vue from 'vue'
 Vue.use(Vuex)
-const store  = new Vuex.Store({
-  state:{
-    count:10
-  },
-  mutations:{
-    addOne(state,obj){
-      state.count++;
-      console.log(obj);
-    }
-  }
+
+import state from "./state"
+import getters from "./getters.js"
+import mutations from "./mutations.js"
+import actions from "./actions.js"
+const store = new Vuex.Store({
+  state,
+  getters,
+  mutations,
+  actions
 })
+
 export default store

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <!--
+    1. 数据代理
+    2. 数据劫持
+    3. 指令解析
+    -->
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script src="./MVVM/mvvm.js"></script>
+<script src="./MVVM/observer.js"></script>
+<script src="./MVVM/compile.js"></script>
+<script src="./MVVM/watcher.js"></script>
+<script>
+    /*数据劫持:
+        将data中的属性从一个数据描述符 转为一个 访问描述符*/
+
+    /*数据劫持的顺序:
+        damuname damuage sonname sonage wifename wifeage  sonwife damuson damu a b
+    * */
+
+    /*dep分配的顺序
+        damu damuname damuage damuson sonname sonage sonwife wifename wifeage a b*/
+
+    // 每一个data中属性都会对应上一个dep闭包!!!!
+
+    var vm = new MVVM({
+        el:"#app",
+        data:{
+            damu:{
+                damuname:"达姆",
+                damuage:18,
+                damuson:{
+                    sonname:"老付",
+                    sonage:48,
+                    sonwife:{
+                        wifename:"老付老婆",
+                        wifeage:17
+                    }
+                }
+            },
+            a:"a",
+            b:"b"
+        }
+    })
+</script>
+</html>

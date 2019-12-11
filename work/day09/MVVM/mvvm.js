@@ -3,12 +3,15 @@ function MVVM(options) {
     var data = this._data = this.$options.data;
     var me = this;
 
+    //数据代理
     Object.keys(data).forEach(function(key) {
         me._proxy(key);
     });
 
+    //数据劫持
     observe(data, this);
 
+    //指令解析
     this.$compile = new Compile(options.el || document.body, this)
 }
 

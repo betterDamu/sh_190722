@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>达姆</li>
+        <li>老刘</li>
+        <li>老付</li>
+        <li>啊芳</li>
+    </ul>
+</body>
+<script>
+    window.onload=function () {
+       var ulNode = document.querySelector("ul");
+       var fragment = document.createDocumentFragment();
+       var child = null;
+       while (ulNode.firstChild){
+           fragment.appendChild(ulNode.firstChild)
+       }
+
+        Array.from(fragment.children).forEach((item)=>{
+            item.innerHTML = "尚硅谷-" + item.innerHTML;
+        })
+
+        ulNode.appendChild(fragment)
+    }
+</script>
+</html>

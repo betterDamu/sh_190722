@@ -3,8 +3,11 @@ function Compile(el, vm) {
     this.$el = this.isElementNode(el) ? el : document.querySelector(el);
 
     if (this.$el) {
+        //将挂载节点的子节点 截到 文档碎片中
         this.$fragment = this.node2Fragment(this.$el);
+        //真正的解析
         this.init();
+        //将解析完毕的文档碎片 挂回dom树中
         this.$el.appendChild(this.$fragment);
     }
 }
