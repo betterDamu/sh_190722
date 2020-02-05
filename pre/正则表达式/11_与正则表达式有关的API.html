@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 正则的天性是贪婪! (量词)
+   /* var str = "atguigu-ll atguigu-lf atguigu-damu atguigu-ct";
+    var res = str.match(/atguigu-.{2,4}?/g);
+    console.log(res)*/
+
+
+   /* var str = "atguigu-ll atguigu-lf atguigu-damu atguigu-ct";
+    str = str.replace(/atguigu-.{2,4}?/,"$");
+    console.log(str)*/
+
+   /* var str = "atguigu-ll atguigu-lf atguigu-damu atguigu-ct";
+    str = str.replace(/atguigu-.{2,4}?/g,function (str) {
+        return "$"+str;
+    });
+    console.log(str)*/
+
+   var str = "atguigu-ll atguigu-lf atguigu-damu atguigu-ct";
+   var reg = /-/;
+   var res = str.split(reg);
+   console.log(res)
+</script>
+</html>

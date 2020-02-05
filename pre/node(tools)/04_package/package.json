@@ -1,0 +1,21 @@
+{
+  "name": "damu4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": {
+    "damu3": "./bin/damu3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "betterdamu",
+  "license": "ISC",
+  "devDependencies": {
+    "etag": "^1.8.1",
+    "jade": "^1.11.0",
+    "yargs": "^12.0.1"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,12 @@
+@a: 1;
+.wrap{
+  @a:2;
+  one:@a;
+  @a:3;
+  .inner{
+    @a:4;
+    two:@a;
+  }
+  @a:5;
+  three:@a;
+}

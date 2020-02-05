@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    head
+        title
+        meta(charset="UTF-8")
+    body
+        - var data = "<script>alert(123)</script>"
+        //h2=  data
+        //h2!=  data
+
+        h2 #{data}
+        h2 !{data}
+        h2 \#{data}
+
+        - var data3 = "damu"
+        div(id ="#{data3}" )
+        div(id =data3 )
+
+

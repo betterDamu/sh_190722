@@ -109,6 +109,7 @@ var compileUtil = {
 
         var me = this,
             val = this._getVMVal(vm, exp);
+        //数据的双向绑定
         node.addEventListener('input', function(e) {
             var newValue = e.target.value;
             if (val === newValue) {
@@ -129,6 +130,7 @@ var compileUtil = {
 
         updaterFn && updaterFn(node, this._getVMVal(vm, exp));
 
+        //构建的多对多关系
         new Watcher(vm, exp, function(value, oldValue) {
             updaterFn && updaterFn(node, value, oldValue);
         });

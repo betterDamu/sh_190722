@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //找到字符串中出现次数最多的那个字符  及其 个数
+   var str = "dabhjkdghaskjhdlaksjdipqodasjkldajhslkddahjskdhasljkddasjkldhjaskl";
+   str = str.split("").sort().join("");
+   //aaaaaaaaabddddddddddddghhhhhhhijjjjjjjjjkkkkkkkkkllllllopqssssssss
+
+   var maxChar="";
+   var maxMun = 0;
+   var reg = /(\w)\1*/g;
+   str.replace(reg,function (str,$1) {
+       console.log($1)
+       if(str.length >= maxMun){
+           maxMun = str.length;
+           maxChar = $1;
+       }
+   })
+
+    console.log(maxChar,maxMun)
+
+</script>
+</html>

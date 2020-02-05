@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+   /*
+        1. 分组(扩大量词的修饰范围)
+        2. 贪婪 惰性
+        3. 可重复的子项
+    */
+    //1. 分组
+   /*var str = "8atguiguatguiguatguigu8";
+   var reg = /(atguigu){2}/g;
+   console.log(reg.test(str))*/
+
+    //2. 贪婪 惰性
+    // var str = "8atguigu8  8atguixu8   8atguigu8";
+    // var reg = /8.*?8/g;
+    // var reg = /8[^8]*8/g;
+    // console.log(str.replace(reg,"尚硅谷"))
+
+    //3. 可重复的子项
+    var reg = /(\d)(\d)(\d)(\d)/g;
+    // var reg= /(\d)(\d)\1\2/g;
+    console.log(reg.test("9876"))
+
+    // var reg2 = /\d\d/g;
+   // console.log(reg2.test("98"))
+
+
+
+
+</script>
+</html>

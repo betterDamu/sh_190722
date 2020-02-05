@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--两列布局(左边固定 右边自适应)-->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        #wrap{
+            width: 200px;
+            background: pink;
+            /*overflow: hidden;*/
+            /*float: left;*/
+            /*position: relative;*/
+            /*overflow: auto;*/
+            display: inline-block;
+        }
+        #inner{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+        }
+
+    </style>
+</head>
+<body>
+    <!--清除浮动:  让浮动的子元素可以撑开父级的高度(解决高度塌陷)-->
+    <!--bfc: 计算BFC的高度时，浮动元素也参与计算。-->
+    <div id="wrap">
+        <div id="inner">
+            inner
+        </div>
+    </div>
+</body>
+</html>

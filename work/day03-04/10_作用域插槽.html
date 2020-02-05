@@ -8,8 +8,8 @@
 <body>
     <div id="app">
         <v-child>
-            <template slot-scope="obj">
-                <span >{{obj.msg}}</span>
+            <template v-slot:damu="obj">
+                <span >{{obj.msg2}}</span>
             </template>
         </v-child>
     </div>
@@ -18,7 +18,7 @@
     <!--具名插槽-->
     var child = {
         template:`<div>
-                    <slot msg="test" msg2="test2"></slot>
+                    <slot name="damu" msg="test" msg2="test2"></slot>
                     </div>`
     }
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    (async ()=>{
+         await new Promise((resolve,reject)=>{
+             setTimeout(()=>{
+                 reject("error")
+             },2000)
+         })
+    })().catch((err)=>{
+        console.log(err);
+    })
+</script>
+</html>

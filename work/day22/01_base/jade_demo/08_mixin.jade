@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    head
+        title
+        meta(charset="UTF-8")
+    body
+        mixin list(arr)
+            ul
+                each item in arr
+                    li #{item}
+
+        +list([1,2,3,4])
+        +list(["a","b","c","d"])
+
+
+
+
+

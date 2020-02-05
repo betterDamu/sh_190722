@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+                基本:
+                    1.当lastIndex大于等于源字符串的长度
+                        reg.test false
+                        reg.exec null
+                        lastindex 0
+
+                    2.当lastIndex小于源字符串的长度
+                        如果匹配成功
+                            reg.test true
+                            reg.exec 封装了当前匹配成功的子字符串的数组
+                            lastindex 紧接着当前匹配成功的子字符串的下一个位置
+                        如果匹配失败
+                            reg.test false
+                            reg.exec null
+                            lastindex 0
+
+
+                考虑空白字符:
+                        当lastIndex小于等于源字符串的长度
+                        reg.test永远都是 true
+                        reg.exec永远都是 ""
+                        lastindex不会发生改变
+
+                 最佳实践:
+                    不能让你的正则表达式完整的匹配到空白字符
+       */
+
+    var str = "damu";
+    var reg = /a*/g;
+    reg.lastIndex = str.length+1;
+    console.log(reg.test(str))
+        console.log(reg.lastIndex)
+    console.log(reg.test(str))
+        console.log(reg.lastIndex)
+    console.log(reg.test(str))
+        console.log(reg.lastIndex)
+    console.log(reg.test(str))
+        console.log(reg.lastIndex)
+    console.log(reg.test(str))
+        console.log(reg.lastIndex)
+
+</script>
+</html>

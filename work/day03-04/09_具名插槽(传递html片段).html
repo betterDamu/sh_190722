@@ -8,8 +8,12 @@
 <body>
     <div id="app">
         <v-child>
-            <span slot="test1">test1</span>
-            <span slot="test2">test2</span>
+            <template v-slot:test1>
+                <span >test1111</span>
+            </template>
+            <template v-slot:test2>
+                <span >test2222</span>
+            </template>
         </v-child>
     </div>
 </body>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*什么是\b
+        匹配一个词的边界*/
+
+    // var str = "b-c";  b算一个独立的单词的
+
+    /*
+     怎么算一个单词的边界?
+        单词后跟的是一个用\w可以匹配的字符 那当前这个单词不是一个独立的单词
+        单词后跟的是一个不能用\w匹配的字符 那当前这个单词是一个独立的单词
+    */
+    var str = "item-1";
+    console.log(/\bitem\b/.test(str));
+</script>
+</html>

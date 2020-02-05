@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+    head
+        title helloWorld
+        meta(charset="UTF-8")
+    body
+        -var arr =[1,2,3,4,5]
+        mixin damuUl()
+           p&attributes(attributes)
+
+        +damuUl()(
+            id="app",
+            name="appname"
+        )

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="http://127.0.0.1:8000" method="post">
+
+        <input type="submit" value="提交" id="submitVal">
+    </form>
+</body>
+<script>
+    window.onload=()=>{
+        submitVal.onclick=(ev)=>{
+            ev = ev||event;
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange=()=>{
+                if(xhr.readyState === 4){
+                    if(xhr.status===200 || xhr.status ===304){
+                        var data = JSON.parse(xhr.responseText);
+                        var node = document.createElement("div");
+                        node.innerHTML =data.name;
+                        document.body.appendChild(node)
+                    }
+                }
+            }
+            xhr.open("get","http://127.0.0.1:8000");
+            xhr.send();
+
+
+            ev.preventDefault();
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var context ={}
+    context.attachment = function () {
+       console.log(this.response)
+    }
+
+    var KoaContext = Object.create(context)
+
+    var ctx = Object.create(KoaContext);
+    ctx.response = {name:"ctx"}
+
+
+    ctx.attachment()
+</script>
+</html>

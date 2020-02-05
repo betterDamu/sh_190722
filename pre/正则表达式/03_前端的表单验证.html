@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form >
+        <input type="text" placeholder="请输入你的账号">
+    </form>
+</body>
+<script>
+       /* 要求:
+            1.  不能以数字0开头
+            2.  5到12位
+            3.  必须都是数字*/
+       window.onload=function () {
+           var inputNode = document.querySelector("input");
+
+
+           inputNode.addEventListener("change",function () {
+               var val = this.value;
+               var reg = /^[1-9]\d{4,11}$/g;
+               if(reg.test(val)){
+                   alert("这是一个正确的探探号")
+               }else {
+                   alert("你就单身吧!!!")
+               }
+           })
+       }
+
+</script>
+</html>

@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+    head
+        title
+        meta(charset="UTF-8")
+    body
+        -var n =5
+        if n
+            if n > 2
+                 p n大于2
+            else if  n <2
+                 p n小于2
+            else
+                p n等于2
+        else
+            p 没有n
+
+        -var m = 6;
+        //命中条件不渲染
+        unless m == 6
+            p sucess
+
+
+

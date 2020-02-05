@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function go(msg) {
+        // go.flag?go.flag++ : go.flag=1;
+        // go.flag=go.flag? go.flag++ : 1;
+        go.flag=go.flag? ++go.flag : 1;
+        return msg ? (function () {
+            var res ="";
+            for(var i=0;i<go.flag;i++){
+                res+="o";
+            }
+            return "g"+res+msg;
+        })():go;
+    }
+    console.log(go("l"));
+</script>
+</html>

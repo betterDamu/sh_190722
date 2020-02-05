@@ -1,0 +1,15 @@
+{
+  "name": "02_package",
+  "version": "1.0.0",
+  "description": "上海190722前端班来污染一把node的生态圈",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jade": "^1.11.0"
+  }
+}

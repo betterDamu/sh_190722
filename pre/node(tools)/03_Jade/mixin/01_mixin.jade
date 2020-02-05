@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    head
+        title helloWorld
+        meta(charset="UTF-8")
+    body
+        -var arr =[1,2,3,4,5]
+        mixin damuUl(arraRRG)
+            ul
+              each item in arraRRG
+                li= item
+
+        +damuUl(arr)
+
+        mixin test(arg1,...arg)
+            ul(id= arg1)
+                each item in arg
+                    li= item
+         +test(1,2,3,4,5,6,7)

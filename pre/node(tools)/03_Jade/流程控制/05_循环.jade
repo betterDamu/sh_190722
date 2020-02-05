@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+    head
+        title
+        meta(charset="UTF-8")
+    body
+        - var obj = {name:"damu",age:18,wife : "zdy" }
+        - for (var item in obj)
+            div #{item}
+
+        each item in obj
+            h2= item
+
+        - var arr = ["arr1","arr2","arr3","arr4"]
+        each item in arr
+            h3= item
+
+        - var objArr = [{id:1,arr:["1-1","1-2","1-3"]},{id:2,arr:["2-1","2-2","2-3"]}];
+            ul
+              each item in objArr
+                li= item.id
+                  each val in item.arr
+                    div= val
+
+
+

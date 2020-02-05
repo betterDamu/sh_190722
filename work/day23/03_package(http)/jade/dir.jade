@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        title 190722
+        style.
+            a{
+                text-decoration: none;
+                color: gray;
+            }
+            li{
+                list-style: none;
+            }
+    body
+        ul
+            each path in paths
+                li
+                    a(href="#{dir}/#{path}")= path

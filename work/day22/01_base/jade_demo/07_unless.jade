@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    head
+        title
+        meta(charset="UTF-8")
+    body
+        -var n =5
+        if n
+            if n > 2
+                p n大于2
+            else if  n <2
+                p n小于2
+            else
+                p n等于2
+        else
+            p 没有n
+
+        -var m = 7;
+        unless m == 6
+            p sucess
+
+        - var friends = 8
+        case friends
+            when 0: p you have no friends
+            when 1: p you have a friend
+            default: p you have #{friends} friends
+
+        - var arr = ["arr1","arr2","arr3","arr4"]
+        each item in arr
+            h3 #{item}
+
+
+

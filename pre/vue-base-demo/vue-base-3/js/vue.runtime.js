@@ -3216,7 +3216,7 @@
     // component constructor creation
     resolveConstructorOptions(Ctor);
 
-    // transform component v-model data into props & events
+    // transform component v-models data into props & events
     if (isDef(data.model)) {
       transformModel(Ctor.options, data);
     }
@@ -3303,7 +3303,7 @@
     return merged
   }
 
-  // transform component v-model info (value and callback) into
+  // transform component v-models info (value and callback) into
   // prop and event handler respectively.
   function transformModel (options, data) {
     var prop = (options.model && options.model.prop) || 'value';
@@ -6820,9 +6820,9 @@
 
   /*  */
 
-  // normalize v-model event tokens that can only be determined at runtime.
+  // normalize v-models event tokens that can only be determined at runtime.
   // it's important to place the event as the first in the array because
-  // the whole point is ensuring the v-model callback gets called before
+  // the whole point is ensuring the v-models callback gets called before
   // user-attached handlers.
   function normalizeEvents (on) {
     /* istanbul ignore if */
@@ -7030,7 +7030,7 @@
 
   function isDirtyWithModifiers (elm, newVal) {
     var value = elm.value;
-    var modifiers = elm._vModifiers; // injected by v-model runtime
+    var modifiers = elm._vModifiers; // injected by v-models runtime
     if (isDef(modifiers)) {
       if (modifiers.number) {
         return toNumber(value) !== toNumber(newVal)
@@ -7878,7 +7878,7 @@
     var isMultiple = el.multiple;
     if (isMultiple && !Array.isArray(value)) {
       warn(
-        "<select multiple v-model=\"" + (binding.expression) + "\"> " +
+        "<select multiple v-models=\"" + (binding.expression) + "\"> " +
         "expects an Array value for its binding, but got " + (Object.prototype.toString.call(value).slice(8, -1)),
         vm
       );

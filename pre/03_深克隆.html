@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var oldObj ={
+        a:1,
+        b:["a","b","c"],
+        c: { d: { f: 2 } },
+        fn(){
+            console.log("----")
+        }
+    }
+
+    var newObj = JSON.parse(JSON.stringify(oldObj));
+    newObj.c.d.f="f";
+    console.log(newObj,oldObj)
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="item item item item   item2    item3"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item-1"></div>
+</body>
+<script src="./js/extend3.js"></script>
+<script>
+  window.onload=function () {
+      var itemNodes =  domExtend.getElementsByClassName("item");
+      console.log(itemNodes)
+  }
+</script>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "koa2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-json-error": "^3.1.2",
+    "koa-parameter": "^3.0.1",
+    "koa-router": "^7.4.0",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon ./app/index.js",
+    "start": "cross-env NODE_ENV=production node ./app/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

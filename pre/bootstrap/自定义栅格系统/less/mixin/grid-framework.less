@@ -1,0 +1,125 @@
+// Framework grid generation
+.make-grid-columns() {
+  .col(@index) { 
+    @item: ~".damu-xs-@{index}, .damu-sm-@{index}, .damu-md-@{index}, .damu-lg-@{index}";
+    .col((@index + 1), @item);
+  }
+    //注意一下递归
+  .col(@index, @list) when (@index =< @grid-columns) { 
+    @item: ~".damu-xs-@{index}, .damu-sm-@{index}, .damu-md-@{index}, .damu-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+    }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  ceil((@grid-gutter-width / 2));
+      padding-right: floor((@grid-gutter-width / 2));
+    }
+  }
+  .col(1); 
+}
+
+
+
+
+
+.make-grid(@class) {
+  .float-grid-columns(@class);
+  //width没有index=0逻辑的
+  .loop-grid-columns(@grid-columns, @class, width);
+  //pull push是有index=0的逻辑  而且index=0的逻辑和index>0的逻辑不一样
+  .loop-grid-columns(@grid-columns, @class, pull);
+  .loop-grid-columns(@grid-columns, @class, push);
+  //有index=0的逻辑  而且index=0的逻辑和index>0的逻辑是一样的
+  .loop-grid-columns(@grid-columns, @class, offset);
+}
+
+
+
+
+.loop-grid-columns(@index, @class, @type) when (@index >= 0) {
+  .calc-grid-column(@index, @class, @type);
+  .loop-grid-columns((@index - 1), @class, @type);
+}
+
+//.damu-xs-offset-12{margin-left:100% ;}
+//.damu-xs-offset-11{margin-left:11/12 ;}
+//.....
+//.damu-xs-offset-11{margin-left:0/12 ;}
+.calc-grid-column(@index, @class, @type) when (@type = offset) {
+  .damu-@{class}-offset-@{index} {
+    margin-left: percentage((@index / @grid-columns));
+  }
+}
+
+
+//.damu-xs-12{width:100% ;}
+//.damu-xs-11{width:11/12 ;}
+//...
+//.damu-xs-1{width:1/12 ;}
+.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+  .damu-@{class}-@{index} {
+    width: percentage((@index / @grid-columns));
+  }
+}
+
+//.damu-xs-12{left:100% ;}
+//.damu-xs-11{left:11/12 ;}
+//...
+//.damu-xs-1{left:1/12 ;}
+//.damu-xs-0{left:auto ;}
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index > 0) {
+  .damu-@{class}-push-@{index} {
+    left: percentage((@index / @grid-columns));
+  }
+}
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index = 0) {
+  .damu-@{class}-push-0 {
+    left: auto;
+  }
+}
+
+//.damu-xs-12{right:100% ;}
+//.damu-xs-11{right:11/12 ;}
+//...
+//.damu-xs-1{right:1/12 ;}
+//.damu-xs-0{right:auto ;}
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > 0) {
+  .damu-@{class}-pull-@{index} {
+    right: percentage((@index / @grid-columns));
+  }
+}
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = 0) {
+  .damu-@{class}-pull-0 {
+    right: auto;
+  }
+}
+
+
+//.damu-xs-1,.damu-xs-2,....,.damu-xs-12{ float: left;}
+.float-grid-columns(@class) {
+  .col(@index) { 
+    @item: ~".damu-@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".damu-@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+    }
+  }
+  .col(1); 
+}
+
+
+
+
+
+
+

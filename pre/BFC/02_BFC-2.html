@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--两列布局(左边固定 右边自适应)-->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        #wrap{
+            width: 60%;
+            height: 60%;
+            overflow: auto;
+            border: 1px solid;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #wrap .left{
+            width: 200px;
+            height: 100px;
+            background: pink;
+            float: left;
+        }
+        #wrap .right{
+            height: 100px;
+            background: gray;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

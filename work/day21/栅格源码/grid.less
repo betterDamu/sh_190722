@@ -1,0 +1,40 @@
+//固定容器的源码位置
+.container {
+  .container-fixed();
+
+
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+
+}
+//流体容器的源码位置
+.container-fluid {
+  .container-fixed();
+}
+
+// Row
+.row {
+  .make-row();
+}
+
+// 列实现
+.make-grid-columns();
+
+// Extra small grid
+.make-grid(xs);
+@media (min-width: @screen-sm-min) {
+  .make-grid(sm);
+}
+@media (min-width: @screen-md-min) {
+  .make-grid(md);
+}
+@media (min-width: @screen-lg-min) {
+  .make-grid(lg);
+}

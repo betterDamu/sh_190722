@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    // 5.RegExp  对象的实例属性
+    //     global 			Boolean 值，		表示 g 是否已设置
+    //     ignoreCase 		Boolean 值，		表示 i 是否已设置
+    //     multiline 		Boolean 值，		表示 m 是否已设置
+    //     lastIndex 		整数，			代表下次匹配将从哪里字符位置开始
+    //     source 							正则表达式的源字符串形式
+
+    var reg = new RegExp("da(.)(u)","igm")  //模式字符串
+    var str = "开始DAMU daxu结束" //源字符串
+    reg.test(str)
+    console.log(reg.global)
+    console.log(reg.ignoreCase)
+    console.log(reg.multiline)
+    console.log(reg.source)
+
+    reg.exec(str)
+    console.log(reg.global)
+    console.log(reg.ignoreCase)
+    console.log(reg.multiline)
+    console.log(reg.source)
+
+
+
+</script>
+</html>

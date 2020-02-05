@@ -3225,7 +3225,7 @@
     // component constructor creation
     resolveConstructorOptions(Ctor);
 
-    // transform component v-model data into props & events
+    // transform component v-models data into props & events
     if (isDef(data.model)) {
       transformModel(Ctor.options, data);
     }
@@ -3312,7 +3312,7 @@
     return merged
   }
 
-  // transform component v-model info (value and callback) into
+  // transform component v-models info (value and callback) into
   // prop and event handler respectively.
   function transformModel (options, data) {
     var prop = (options.model && options.model.prop) || 'value';
@@ -7146,7 +7146,7 @@
   /*  */
 
   /**
-   * Cross-platform code generation for component v-model
+   * Cross-platform code generation for component v-models
    */
   function genComponentModel (
     el,
@@ -7178,7 +7178,7 @@
   }
 
   /**
-   * Cross-platform codegen helper for generating v-model value assignment code.
+   * Cross-platform codegen helper for generating v-models value assignment code.
    */
   function genAssignmentCode (
     value,
@@ -7193,7 +7193,7 @@
   }
 
   /**
-   * Parse a v-model expression into a base path and a final key segment.
+   * Parse a v-models expression into a base path and a final key segment.
    * Handles both dot-path and possible square brackets.
    *
    * Possible cases:
@@ -7213,7 +7213,7 @@
 
   function parseModel (val) {
     // Fix https://github.com/vuejs/vue/pull/7730
-    // allow v-model="obj.val " (trailing whitespace)
+    // allow v-models="obj.val " (trailing whitespace)
     val = val.trim();
     len = val.length;
 
@@ -7316,16 +7316,16 @@
       // value will throw an error.
       if (tag === 'input' && type === 'file') {
         warn$1(
-          "<" + (el.tag) + " v-model=\"" + value + "\" type=\"file\">:\n" +
+          "<" + (el.tag) + " v-models=\"" + value + "\" type=\"file\">:\n" +
           "File inputs are read only. Use a v-on:change listener instead.",
-          el.rawAttrsMap['v-model']
+          el.rawAttrsMap['v-models']
         );
       }
     }
 
     if (el.component) {
       genComponentModel(el, value, modifiers);
-      // component v-model doesn't need extra runtime
+      // component v-models doesn't need extra runtime
       return false
     } else if (tag === 'select') {
       genSelect(el, value, modifiers);
@@ -7337,15 +7337,15 @@
       genDefaultModel(el, value, modifiers);
     } else if (!config.isReservedTag(tag)) {
       genComponentModel(el, value, modifiers);
-      // component v-model doesn't need extra runtime
+      // component v-models doesn't need extra runtime
       return false
     } else {
       warn$1(
-        "<" + (el.tag) + " v-model=\"" + value + "\">: " +
-        "v-model is not supported on this element type. " +
+        "<" + (el.tag) + " v-models=\"" + value + "\">: " +
+        "v-models is not supported on this element type. " +
         'If you are working with contenteditable, it\'s recommended to ' +
         'wrap a library dedicated for that purpose inside a custom component.',
-        el.rawAttrsMap['v-model']
+        el.rawAttrsMap['v-models']
       );
     }
 
@@ -7420,7 +7420,7 @@
   ) {
     var type = el.attrsMap.type;
 
-    // warn if v-bind:value conflicts with v-model
+    // warn if v-bind:value conflicts with v-models
     // except for inputs with v-bind:type
     {
       var value$1 = el.attrsMap['v-bind:value'] || el.attrsMap[':value'];
@@ -7428,7 +7428,7 @@
       if (value$1 && !typeBinding) {
         var binding = el.attrsMap['v-bind:value'] ? 'v-bind:value' : ':value';
         warn$1(
-          binding + "=\"" + value$1 + "\" conflicts with v-model on the same element " +
+          binding + "=\"" + value$1 + "\" conflicts with v-models on the same element " +
           'because the latter already expands to a value binding internally',
           el.rawAttrsMap[binding]
         );
@@ -7468,9 +7468,9 @@
 
   /*  */
 
-  // normalize v-model event tokens that can only be determined at runtime.
+  // normalize v-models event tokens that can only be determined at runtime.
   // it's important to place the event as the first in the array because
-  // the whole point is ensuring the v-model callback gets called before
+  // the whole point is ensuring the v-models callback gets called before
   // user-attached handlers.
   function normalizeEvents (on) {
     /* istanbul ignore if */
@@ -7678,7 +7678,7 @@
 
   function isDirtyWithModifiers (elm, newVal) {
     var value = elm.value;
-    var modifiers = elm._vModifiers; // injected by v-model runtime
+    var modifiers = elm._vModifiers; // injected by v-models runtime
     if (isDef(modifiers)) {
       if (modifiers.number) {
         return toNumber(value) !== toNumber(newVal)
@@ -8526,7 +8526,7 @@
     var isMultiple = el.multiple;
     if (isMultiple && !Array.isArray(value)) {
       warn(
-        "<select multiple v-model=\"" + (binding.expression) + "\"> " +
+        "<select multiple v-models=\"" + (binding.expression) + "\"> " +
         "expects an Array value for its binding, but got " + (Object.prototype.toString.call(value).slice(8, -1)),
         vm
       );
@@ -10464,12 +10464,12 @@
     while (_el) {
       if (_el.for && _el.alias === value) {
         warn$2(
-          "<" + (el.tag) + " v-model=\"" + value + "\">: " +
-          "You are binding v-model directly to a v-for iteration alias. " +
+          "<" + (el.tag) + " v-models=\"" + value + "\">: " +
+          "You are binding v-models directly to a v-for iteration alias. " +
           "This will not be able to modify the v-for source array because " +
           "writing to the alias is like modifying a function local variable. " +
-          "Consider using an array of objects and use v-model on an object property instead.",
-          el.rawAttrsMap['v-model']
+          "Consider using an array of objects and use v-models on an object property instead.",
+          el.rawAttrsMap['v-models']
         );
       }
       _el = _el.parent;
@@ -10481,7 +10481,7 @@
   function preTransformNode (el, options) {
     if (el.tag === 'input') {
       var map = el.attrsMap;
-      if (!map['v-model']) {
+      if (!map['v-models']) {
         return
       }
 
@@ -11145,9 +11145,9 @@
     if (el.scopedSlots) {
       data += (genScopedSlots(el, el.scopedSlots, state)) + ",";
     }
-    // component v-model
+    // component v-models
     if (el.model) {
-      data += "model:{value:" + (el.model.value) + ",callback:" + (el.model.callback) + ",expression:" + (el.model.expression) + "},";
+      data += "models:{value:" + (el.model.value) + ",callback:" + (el.model.callback) + ",expression:" + (el.model.expression) + "},";
     }
     // inline-template
     if (el.inlineTemplate) {

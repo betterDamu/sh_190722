@@ -1,0 +1,36 @@
+@import "mixin/grid";
+@import "mixin/grid-framework";
+.container {
+  .container-fixed();
+
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+.container-fluid {
+  .container-fixed();
+}
+.row {
+  .make-row();
+}
+.make-grid-columns();
+//所有xs列浮动起来   根据index值来分配直接的width：index/12;
+.make-grid(xs);
+@media (min-width: @screen-sm-min) {
+    //所有sm列浮动起来   根据index值来分配直接的width：index/12;
+  .make-grid(sm);
+}
+@media (min-width: @screen-md-min) {
+    //所有md列浮动起来   根据index值来分配直接的width：index/12;
+  .make-grid(md);
+}
+@media (min-width: @screen-lg-min) {
+    //所有lg列浮动起来   根据index值来分配直接的width：index/12;
+  .make-grid(lg);
+}

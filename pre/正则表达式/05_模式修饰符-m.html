@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <textarea id="test" cols="30" rows="10">
+
+    </textarea>
+</body>
+<script>
+
+    window.onload=function () {
+        var testNode = document.querySelector("#test");
+        testNode.onchange=function () {
+            var val = testNode.value;
+            var reg = /^damu/gm;
+            console.log(val.match(reg))
+        }
+    }
+
+</script>
+</html>

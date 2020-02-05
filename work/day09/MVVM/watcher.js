@@ -26,6 +26,7 @@ Watcher.prototype = {
     },
     get: function() {
         Dep.target = this;
+        //多对多关系的构建
         var value = this.getVMVal();
         Dep.target = null;
         return value;

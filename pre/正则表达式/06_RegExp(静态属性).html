@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 4.RegExp对象的静态属性
+    //     input 			$_ 	当前被匹配的字符串
+    //     lastMatch 		$& 	最后一个匹配字符串
+    //     lastParen 		$+ 	最后一对圆括号内的匹配子串
+    //     leftContext 	    $` 	最后一次匹配前的子串
+    //     rightContext 	$' 	在上次匹配之后的子串
+    //                     $1     第一个分组的内容
+    //                     $2     第一个分组的内容
+    //                         。。。
+    // 5.RegExp  对象的实例属性
+    //     global 			Boolean 值，		表示 g 是否已设置
+    //     ignoreCase 		Boolean 值，		表示 i 是否已设置
+    //     multiline 		Boolean 值，		表示 m 是否已设置
+    //     lastIndex 		整数，			代表下次匹配将从哪里字符位置开始
+    //     source 							正则表达式的源字符串形式
+
+    var reg = new RegExp("da(.)(u)","i")  //模式字符串
+    var str = "开始DAMU daxu结束" //源字符串
+    reg.test(str)
+    console.log(RegExp.input)
+    console.log(RegExp.lastMatch)
+    console.log(RegExp.lastParen)
+    console.log(RegExp.leftContext)
+    console.log(RegExp.rightContext)
+    console.log(RegExp.$1)
+    console.log(RegExp.$2)
+
+
+    /*静态属性是共用的!!! 它携带的信息是离他最近的匹配成功的那个正则表达式的信息!!!*/
+    var reg2 = new RegExp("da","i")
+    var str2 = "da"
+    reg2.exec(str2)
+    console.log(RegExp.input)
+    console.log(RegExp.lastMatch)
+    console.log(RegExp.lastParen)
+    console.log(RegExp.leftContext)
+    console.log(RegExp.rightContext)
+    console.log(RegExp.$1)
+    console.log(RegExp.$2)
+
+
+</script>
+</html>

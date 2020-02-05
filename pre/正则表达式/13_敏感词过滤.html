@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <textarea  id="left" cols="30" rows="10"></textarea>
+    <textarea  id="right" cols="30" rows="10"></textarea>
+</body>
+<script>
+    window.onload=function () {
+        var arr = ["fuck","老刘","老付","长腿"]
+        var left = document.querySelector("#left");
+        var right = document.querySelector("#right");
+        left.onchange=function(){
+            right.value = change(this.value,arr);
+        }
+
+
+
+        function change(val,arr) {
+            var str = arr.join("|");
+            var reg = new RegExp(str,"g");
+
+            return val.replace(reg,function (str) {
+                var  res = "";
+                var length = str.length;
+                for(var i=0;i<length;i++){
+                    res+="*";
+                }
+                return res;
+            })
+        }
+    }
+
+
+
+</script>
+</html>

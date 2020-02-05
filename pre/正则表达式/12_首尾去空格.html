@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    String.prototype.trim2 = function () {
+        var reg = /^\s+|\s+$/g;
+        return this.replace(reg,"+")
+    }
+    var str = "    123       ";
+    console.log("$"+str.trim2()+"$")
+
+
+
+
+    //var str = " 123 ";
+    //console.log("$"+str.trim()+"$")
+
+
+</script>
+</html>

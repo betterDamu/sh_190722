@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        title 190722
+        link(href='//at.alicdn.com/t/font_1595074_xnm8ib6814s.css',rel="stylesheet")
+        style.
+            li{
+                list-style: none;
+                font-size: 24px;
+            }
+            span{
+                display: inline-block;
+                font-size: 24px !important;
+                color: gray;
+                margin-right: 10px;
+                margin-top: 4px;
+            }
+            a {
+                display: inline-block;
+                text-decoration: none;
+                color: gray;
+            }
+    body
+        ul
+            each file in files
+                li
+                    span(class=`iconfont ${file.icon}`)
+                    a(href="#{dir}/#{file.name}")= file.name

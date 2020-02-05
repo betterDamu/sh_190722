@@ -1,0 +1,8 @@
+.wrap {
+  one: 5;
+  three: 5;
+}
+.wrap .inner {
+  two: 4;
+}
+/*# sourceMappingURL=index.css.map */
