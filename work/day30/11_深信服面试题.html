@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //不能使用全局变量!!!
+    //go("l")  ---> "gol"
+    //go()("l")  ---> "gool"
+    //go()()("l")  ---> "goool"
+
+
+    //1. 如果go函数没有传参那应该返回一个函数  等待着被继续调用
+    //2. 如果go函数传参了那应该返回一个字符串  "g"+ "o"*go函数的调用次数 +"l"
+
+
+    // flag代表go函数的调用次数
+
+    //闭包
+    //尾递归
+    //++
+    //变量 属性
+    function go(msg) {
+        go.flag = go.flag ? ++go.flag : 1;
+        return msg?(function () {
+            var oStr = "";
+            for(let i=0;i<go.flag;i++){
+                oStr+="o";
+            }
+            return "g"+oStr+msg
+        })():go
+    }
+
+    console.log(go()()()("l"))
+
+</script>
+</html>
