@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap{
+           width: 200px;
+           border: 1px solid;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!--清除浮动: 让浮动的子元素有能力撑开父元素(父元素得是一个BFC)-->
+    <!--
+        1. 父元素是一个浮动元素
+        2. 父元素是一个定位元素(绝对定位 相对定位)
+        3. 父元素是一个行内块元素
+    -->
+    <div class="wrap" style="display: inline-block">
+        <div class="box">
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //深克隆
+    var oldObj = {
+        a:1,
+        b:["一","二","三"],
+        c:{
+            d:{
+                f:2
+            }
+        },
+        fn(){
+            console.log("----")
+        }
+    }
+    var newObj = deepClone(oldObj);
+    newObj.c.d.f="f";
+    console.log(oldObj,newObj)
+
+
+    function deepClone(obj) {
+        //序列化    obj --> 字符串  stringify
+        //反序列化  字符串 --> obj  parse
+        return JSON.parse(JSON.stringify(obj))
+    }
+
+</script>
+</html>

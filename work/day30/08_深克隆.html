@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+<script>
+    //深克隆
+    var oldObj = {
+        a:1,
+        b:["一","二","三"],
+        c:{
+            d:{
+                f:2
+            }
+        },
+        fn(){
+            console.log("----")
+        }
+    }
+    var newObj = _.cloneDeepWith(oldObj)
+    newObj.c.d.f="f";
+    console.log(oldObj,newObj)
+
+
+
+
+</script>
+</html>

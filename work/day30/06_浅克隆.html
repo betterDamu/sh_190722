@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //浅克隆
+    var oldObj = {
+        a:1,
+        b:["一","二","三"],
+        c:{
+            d:{
+                f:2
+            }
+        }
+    }
+
+    var newObj={}
+    newObj = Object.assign(newObj,oldObj)
+    newObj.c.d.f="f";
+    console.log(oldObj,newObj)
+
+</script>
+</html>
