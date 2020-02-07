@@ -18,6 +18,7 @@ class Users {
         ctx.verifyParams({
             name: {type:"string",required :true},
             password: {type:"string",required :true},
+            gender:{type:'string',required:true}
         });
 
         //body中的数据通过校验之后 再拿到它
@@ -31,8 +32,11 @@ class Users {
         let salt = bcrypt.genSaltSync(10);
         password = bcrypt.hashSync(password, salt);
 
+        //拿性别
+        let gender = ctx.request.body.gender;
+
         //进行入库
-        let user = await usersModel.create({name,password});
+        let user = await usersModel.create({name,password,gender});
 
         //注册成功之后返回的数据不包含密码
         let newUser = await usersModel.findById(user._id);
@@ -40,35 +44,33 @@ class Users {
     };
 
     async getUserById(ctx){
-        ctx.verifyParams({
-            id: {type:"string",required :true}
-        });
         let id = ctx.params.id;
         let user = await usersModel.findById(id);
         if(!user) ctx.throw(404,"当前用户不存在")
         ctx.body=user;
     };
+
     async updateUserById(ctx){
         ctx.verifyParams({
-            id: {type:"string",required :true}
+            name: {type:"string",required:false},
+            password: {type:"string",required:false},
+            gender:{type:"string",required:false},
+            avatarUrl:{type:"string",required:false},
+            headline:{type:"string",required:false},
+            business:{type:"string",required:false},
+            locations:{type:"array",itemType:"string",required:false},
+            employments:{type:"array",itemType:"object",required:false},
+            educations:{type:"array",itemType:"object",required:false}
         });
-        let update = {};
-        let id = ctx.params.id;
-        let name = ctx.request.body.name;
-        let password = ctx.request.body.password;
-        name?update.name=name:"";
-        password?update.password=password:"";
-        let user  = await usersModel.findByIdAndUpdate(id,update)
+
+        let id =  ctx.params.id;
+        let user  = await usersModel.findByIdAndUpdate(id,ctx.request.body)
         if(!user) ctx.throw(404,"当前用户不存在");
+
         let updatedUser = await usersModel.findById(id);
         ctx.body=updatedUser;
     };
-    async delUserById(ctx){
-        let id = ctx.params.id;
-        let user = await usersModel.findByIdAndRemove(id);
-        if(!user) ctx.throw(404,"当前用户不存在")
-        ctx.status=204;
-    };
+
     async login(ctx){
         ctx.verifyParams({
             name: {type:"string",required :true},
@@ -76,13 +78,34 @@ class Users {
         });
         let name = ctx.request.body.name;
         let password = ctx.request.body.password;
-        let user = await usersModel.findOne({name,password});
-        if(!user) {ctx.throw(401,"登录失败")};
-        const token = jsonwebtoken.sign({name:user.name,id:user._id},"damu",{expiresIn:"7d"});
+
+        //校验用户名
+        let user = await usersModel.findOne({name}).select("+password");
+        if(!user) {ctx.throw(404,"用户不存在")};
+        //校验密码
+        console.log(password, user.password)
+        let flag = bcrypt.compareSync(password, user.password)
+        if(!flag){ctx.throw(401,"密码输入有误")}
+
+        const token = jsonwebtoken.sign(
+            {name:user.name,_id:user._id},
+            "damu",
+            {expiresIn:"7d"}
+        );
+
         ctx.body ={
             token
         }
     }
+
+
+    async delUserById(ctx){
+        let id = ctx.params.id;
+        let user = await usersModel.findByIdAndRemove(id);
+        if(!user) ctx.throw(404,"当前用户不存在")
+        ctx.status=204;
+    };
+
     async upload(ctx){
         const file = ctx.request.files.file;
         const name = file.path.split("\\").pop();
