@@ -13,6 +13,7 @@ const path = require('path');//node中路径模块
 const serve = require('koa-static'); // koa提供的静态资源服务器
 const requireDirectory = require('require-directory');//获取一个目录底下所有文件暴露出来的模块
 const Router = require("koa-router");//后台路由
+const config = require("./config")
 
 
 require("./db");//连接数据库
@@ -37,4 +38,6 @@ requireDirectory(module,"./routes",{visit:(route)=>{
 }})
 
 
-app.listen(8080);//启动服务
+app.listen(config.port,config.host,()=>{
+    console.log(`server is runing on http://${config.host}:${config.port}`)
+});//启动服务

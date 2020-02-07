@@ -15,10 +15,11 @@ usersRouter.get("/:id",getUserById)
 usersRouter.post("/login",login)
 //根据用户id去修改用户
 usersRouter.patch("/:id",auth,access,updateUserById)
-
-
+//上传用户头像
+usersRouter.post("/:id/upload",auth,access,upload)
+//根据id删除用户
 usersRouter.del("/:id",auth,access,delUserById)
 
-usersRouter.post("/upload",upload)
+
 
 module.exports=usersRouter;

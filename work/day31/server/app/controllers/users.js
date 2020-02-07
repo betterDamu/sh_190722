@@ -1,6 +1,7 @@
 const usersModel = require("../models/users");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const config = require("../config")
 class Users {
 
     async getAll(ctx){
@@ -18,7 +19,13 @@ class Users {
         ctx.verifyParams({
             name: {type:"string",required :true},
             password: {type:"string",required :true},
-            gender:{type:'string',required:true}
+            gender:{type:'string',required:true},
+            avatarUrl:{type:"string",required:false},
+            headline:{type:"string",required:false},
+            business:{type:"string",required:false},
+            locations:{type:"array",itemType:"string",required:false},
+            employments:{type:"array",itemType:"object",required:false},
+            educations:{type:"array",itemType:"object",required:false}
         });
 
         //body中的数据通过校验之后 再拿到它
@@ -35,8 +42,10 @@ class Users {
         //拿性别
         let gender = ctx.request.body.gender;
 
+        ctx.request.body.password = password;
+
         //进行入库
-        let user = await usersModel.create({name,password,gender});
+        let user = await usersModel.create(ctx.request.body);
 
         //注册成功之后返回的数据不包含密码
         let newUser = await usersModel.findById(user._id);
@@ -44,8 +53,18 @@ class Users {
     };
 
     async getUserById(ctx){
+        //locations;;employments;educations
+        //[ 'locations', '', 'employments', 'educations' ]
+        //[ 'locations', 'employments', 'educations' ]
+        //[ '+locations', '+employments', '+educations' ]
+        //+locations +employments +educations
+        const {fields} = ctx.query;
+        const selectFields =
+                fields.split(";").filter(item=>item)
+                    .map(item=>`+${item}`).join(" ");
+        console.log(selectFields)
         let id = ctx.params.id;
-        let user = await usersModel.findById(id);
+        let user = await usersModel.findById(id).select(selectFields);
         if(!user) ctx.throw(404,"当前用户不存在")
         ctx.body=user;
     };
@@ -89,8 +108,8 @@ class Users {
 
         const token = jsonwebtoken.sign(
             {name:user.name,_id:user._id},
-            "damu",
-            {expiresIn:"7d"}
+            config.tokenKey,
+            {expiresIn:config.tokenExpiresIn}
         );
 
         ctx.body ={
@@ -98,6 +117,13 @@ class Users {
         }
     }
 
+    async upload(ctx){
+        const file = ctx.request.files.file;
+        const name = file.path.split("\\").pop();
+        ctx.body={
+            path:`http://${config.host}:${config.port}/img/${name}`
+        }
+    }
 
     async delUserById(ctx){
         let id = ctx.params.id;
@@ -106,13 +132,6 @@ class Users {
         ctx.status=204;
     };
 
-    async upload(ctx){
-        const file = ctx.request.files.file;
-        const name = file.path.split("\\").pop();
-        ctx.body={
-            path:`http://127.0.0.1:3000/img/${name}`
-        }
-    }
 }
 
 module.exports=new Users();
