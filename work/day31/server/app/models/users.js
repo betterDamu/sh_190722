@@ -45,7 +45,8 @@ const usersSchema = Schema({
     //following最好设计成用户关注的对象(有限的数据)
     following:{
         type:[{
-            type:Schema.Types.ObjectId
+            type:Schema.Types.ObjectId,
+            ref:"Users"
         }],
         select:false
     }

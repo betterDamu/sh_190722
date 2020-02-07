@@ -155,6 +155,18 @@ class Users {
         ctx.status=204;
     }
 
+    async listFollowing(ctx){
+        const id = ctx.params.id;
+        //populate : 链接查询(外链接)
+        const user = await usersModel.findById(id).select("+following").populate("following");
+        if(!user){ctx.throw(404,"用户不存在")}
+        ctx.body = user.following
+    }
+
+    async listFollowers(ctx){
+        const users = await usersModel.find({following:ctx.params.id});
+        ctx.body = users;
+    }
 }
 
 module.exports=new Users();

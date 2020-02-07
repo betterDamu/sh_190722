@@ -2,7 +2,7 @@ const Router = require("koa-router");
 const usersRouter = new Router({prefix:"/users"});
 const {getAll,addUser,getUserById,
     updateUserById,delUserById,login,upload,
-    follow,unfollow} = require("../controllers/users")
+    follow,unfollow,listFollowing,listFollowers} = require("../controllers/users")
 const {auth,access,followUserExist} = require("../middlewares")
 
 
@@ -25,6 +25,10 @@ usersRouter.del("/:id",auth,access,delUserById)
 usersRouter.put("/following/:id",auth,followUserExist,follow)
 //取消关注
 usersRouter.del("/following/:id",auth,followUserExist,unfollow)
+//列出用户底下的关注者
+usersRouter.get("/:id/following",listFollowing)
+//列出用户的粉丝
+usersRouter.get("/:id/followers",listFollowers)
 
 
 
