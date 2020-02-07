@@ -1,3 +1,12 @@
+### ODM框架
+        1.moogose
+            connection:连接数据库
+            Schema    :对文档结构的一个映射
+            model     :对文档进行操作的工具
+            document  :model的一个实例 是对文档的一个抽象
+            query     :查询(查到结果再次进行筛选)
+
+
 ### web框架
         1.koa2
             路由

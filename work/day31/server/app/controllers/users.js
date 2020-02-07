@@ -1,23 +1,44 @@
 const usersModel = require("../models/users");
 const jsonwebtoken = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 class Users {
+
     async getAll(ctx){
-        ctx.body=await usersModel.find()
+        //分页功能  模糊搜索
+        let {pre_page=10,page=1,q=""} = ctx.query;
+        pre_page = Math.max(+pre_page,1);
+        page = Math.max(+page,1);
+        //第一页: 跳过0条  返回10条
+        //第二页: 跳过10条 返回下10条
+        ctx.body=await usersModel.find({name:new RegExp(q)}).skip((page-1)*pre_page).limit(pre_page)
     };
+
     async addUser(ctx){
+        //对body中的数据进行一次校验
         ctx.verifyParams({
             name: {type:"string",required :true},
             password: {type:"string",required :true},
         });
+
+        //body中的数据通过校验之后 再拿到它
+        //拿到name后继续进行业务校验 不允许出现相同用户名的用户
         let name = ctx.request.body.name;
         let data = await usersModel.findOne({name});
         if(data) {ctx.throw(409,"用户名已注册")}
+
+        //拿到密码 进行加盐加密
         let password = ctx.request.body.password;
-        let user = await usersModel.create({name,password})
-        // let user =await new usersModel({name}).save();
+        let salt = bcrypt.genSaltSync(10);
+        password = bcrypt.hashSync(password, salt);
+
+        //进行入库
+        let user = await usersModel.create({name,password});
+
+        //注册成功之后返回的数据不包含密码
         let newUser = await usersModel.findById(user._id);
         ctx.body = newUser;
     };
+
     async getUserById(ctx){
         ctx.verifyParams({
             id: {type:"string",required :true}

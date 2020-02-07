@@ -17,7 +17,7 @@ const Router = require("koa-router");//后台路由
 
 require("./db");//连接数据库
 app.use(serve(__dirname + '/public'));//启动一个静态资源服务器
-parameter(app);
+parameter(app);//只校验body中的数据
 app.use(error({
     postFormat: (e, obj) => process.env.NODE_ENV === 'production' ? _.omit(obj, 'stack') : obj
 }))
