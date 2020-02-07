@@ -1,3 +1,11 @@
+/*
+    粉丝 主播(都算用户)
+        1个主播 能不能被多个粉丝关注？ 可以的
+        1个粉丝 能不能关注多个主播?    可以的
+*/
+
+
+
 const mongoose = require("mongoose");
 const {Schema,model} = mongoose;
 const usersSchema = Schema({
@@ -29,6 +37,15 @@ const usersSchema = Schema({
             },
             entrance_year:Number,
             graduation_year:Number
+        }],
+        select:false
+    },
+    //代表当前的用户关注了谁?
+    //代表当前用户的粉丝?
+    //following最好设计成用户关注的对象(有限的数据)
+    following:{
+        type:[{
+            type:Schema.Types.ObjectId
         }],
         select:false
     }

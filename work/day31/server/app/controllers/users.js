@@ -132,6 +132,29 @@ class Users {
         ctx.status=204;
     };
 
+    async follow(ctx){
+        //找到当前的登录者
+        const me = await usersModel.findById(ctx.state.user._id).select("+following");
+        const followId = ctx.params.id;
+        if(!me.following.includes(followId)){
+            me.following.push(followId);
+            me.save();
+        }
+        ctx.status=204;
+    }
+
+    async unfollow(ctx){
+        //找到当前的登录者
+        const me = await usersModel.findById(ctx.state.user._id).select("+following");
+        const followId = ctx.params.id;
+        if(me.following.includes(followId)){
+            const index = me.following.indexOf(followId);
+            me.following.splice(index,1);
+            me.save();
+        }
+        ctx.status=204;
+    }
+
 }
 
 module.exports=new Users();
