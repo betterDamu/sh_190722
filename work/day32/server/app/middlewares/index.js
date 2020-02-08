@@ -4,6 +4,7 @@ const basicAuth = require('basic-auth');
 const usersModel = require("../models/users");
 const topicsModel = require("../models/topics");
 const questionsModel = require("../models/questions");
+const answersModel = require("../models/answers");
 class MiddleWares {
     //登录验证
     async auth(ctx,next){
@@ -48,14 +49,44 @@ class MiddleWares {
     async questionExist(ctx,next){
         const question =   await questionsModel.findById(ctx.params.id);
         if(!question){ctx.throw(404,"对应的问题不存在")};
+        ctx.state.question = question;
+        await next()
+    }
+
+    //判断一下对应的答案是否存在
+    async answerExist(ctx,next){
+        const answer =   await answersModel.findById(ctx.params.answerId);
+        if(!answer){ctx.throw(404,"对应的答案不存在")};
+        ctx.state.answer = answer;
         await next()
     }
 
     //判断一下当前问题是不是属于当前用户
+    //依赖于auth
     async questionIsLogin(ctx,next){
         const question =   await questionsModel.findById(ctx.params.id);
         if(ctx.state.user._id !== question.questioner.toString()){
             ctx.throw(401,"当前问题 不属于 当前用户")
+        }
+        await next()
+    }
+
+    //判断一下当前答案是不是当前用户回答的
+    async answerIsLogin (ctx,next){
+        const answer =   await answersModel.findById(ctx.params.answerId);
+        if(ctx.state.user._id !== answer.answer.toString()){
+            ctx.throw(401,"当前答案 不属于 当前用户")
+        }
+        await next()
+    }
+
+    //判断一下当前答案是不是属于当前问题
+    //answerIsQuestion依赖于questionExist & answerExist
+    async answerIsQuestion(ctx,next){
+        //ctx.params.id
+        // answersModel answerid
+        if(ctx.state.question._id.toString() !== ctx.state.answer.questionItem.toString()){
+            ctx.throw(401,"当前答案 不属于 当前问题")
         }
         await next()
     }
