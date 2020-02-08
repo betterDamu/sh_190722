@@ -1,4 +1,5 @@
 const usersModel = require("../models/users");
+const questionsModel = require("../models/questions");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const config = require("../config")
@@ -198,6 +199,11 @@ class Users {
         const user = await usersModel.findById(id).select("+followingTopics")
             .populate("followingTopics");
         ctx.body = user.followingTopics
+    }
+
+    async listQuestions(ctx){
+        const questions=  await questionsModel.find({questioner:ctx.params.id});
+        ctx.body = questions;
     }
 
 }

@@ -1,7 +1,8 @@
 const Router = require("koa-router");
 const topicsRouter = new Router({prefix:"/topics"});
 const {getAllTopics,getTopicById,addTopic,
-    updateTopicById,delTopicById,listTopicFollowers} = require("../controllers/topics")
+    updateTopicById,delTopicById,
+    listTopicFollowers,listQuestions} = require("../controllers/topics")
 const {topicExist} = require("../middlewares/index")
 
 // 查询: 公开的,不需要业务校验(除非数据是敏感数据)
@@ -24,5 +25,8 @@ topicsRouter.del("/:id",topicExist,delTopicById)
 
 //获取话题的关注者 id:话题
 topicsRouter.get("/:id/followers",topicExist,listTopicFollowers)
+
+//获取指定话题的问题列表
+topicsRouter.get("/:id/questions",topicExist,listQuestions)
 
 module.exports = topicsRouter;

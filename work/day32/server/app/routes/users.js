@@ -3,7 +3,8 @@ const usersRouter = new Router({prefix:"/users"});
 const {getAll,addUser,getUserById,
     updateUserById,delUserById,login,upload,
     follow,unfollow,listFollowing,listFollowers,
-    followTopic,unfollowTopic,listFollowingTopics} = require("../controllers/users")
+    followTopic,unfollowTopic,listFollowingTopics,
+    listQuestions} = require("../controllers/users")
 const {auth,access,followUserExist,topicExist} = require("../middlewares")
 
 
@@ -37,6 +38,9 @@ usersRouter.put("/followingTopics/:id",auth,topicExist,followTopic)
 usersRouter.del("/followingTopics/:id",auth,topicExist,unfollowTopic)
 //列出用户关注的话题 id:用户id
 usersRouter.get("/:id/followingTopics",auth,access,listFollowingTopics)
+
+//列出用户提出的问题 id:用户id
+usersRouter.get("/:id/questions",auth,access,listQuestions)
 
 
 

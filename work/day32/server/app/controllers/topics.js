@@ -1,5 +1,6 @@
 const topicsModel = require("../models/topics")
 const usersModel = require("../models/users")
+const questionsModel = require("../models/questions")
 
 class Topics {
     async getAllTopics(ctx){
@@ -56,15 +57,13 @@ class Topics {
         const users = await usersModel.find({followingTopics:ctx.params.id});
         ctx.body = users;
     }
+    //列出话题下的问题
+    async listQuestions(ctx){
+        const questions = await questionsModel.find({topics:ctx.params.id})
+            .populate("questioner");
+        ctx.body = questions;
+    }
 }
 
 
 module.exports = new Topics()
-
-// module.exports={
-//     getAllTopics :async (ctx)=>{},
-//     getTopicById :async (ctx)=>{},
-//     addTopic :async (ctx)=>{},
-//     updateTopicById :async (ctx)=>{},
-//     delTopicById :async (ctx)=>{}
-// }

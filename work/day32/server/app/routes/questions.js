@@ -17,4 +17,7 @@ questionsRouter.patch("/:id",auth,questionExist,questionIsLogin,updateQuestionBy
 questionsRouter.del("/:id",auth,questionExist,questionIsLogin,delQuestionById)
 
 
+
+
+
 module.exports = questionsRouter;
