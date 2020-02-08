@@ -61,6 +61,13 @@ class MiddleWares {
         await next()
     }
 
+    //判断一下对应的用户是否存在
+    async userExist(ctx,next){
+        const question =   await usersModel.findById(ctx.params.id);
+        if(!question){ctx.throw(404,"当前用户不存在")};
+        await next()
+    }
+
     //判断一下当前问题是不是属于当前用户
     //依赖于auth
     async questionIsLogin(ctx,next){
@@ -85,6 +92,7 @@ class MiddleWares {
     async answerIsQuestion(ctx,next){
         //ctx.params.id
         // answersModel answerid
+        console.log(ctx.state.question._id,ctx.state.answer.questionItem.toString())
         if(ctx.state.question._id.toString() !== ctx.state.answer.questionItem.toString()){
             ctx.throw(401,"当前答案 不属于 当前问题")
         }

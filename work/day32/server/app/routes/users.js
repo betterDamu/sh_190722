@@ -4,8 +4,10 @@ const {getAll,addUser,getUserById,
     updateUserById,delUserById,login,upload,
     follow,unfollow,listFollowing,listFollowers,
     followTopic,unfollowTopic,listFollowingTopics,
-    listQuestions} = require("../controllers/users")
-const {auth,access,followUserExist,topicExist} = require("../middlewares")
+    listQuestions,like,unlike,listAnswerLikes,
+    dislike,unDislike,listAnswerDisLikes} = require("../controllers/users")
+const {auth,access,followUserExist,
+    topicExist,answerExist,userExist} = require("../middlewares")
 
 
 //获取所有用户的 支持分页 支持对name的模糊搜索
@@ -42,6 +44,18 @@ usersRouter.get("/:id/followingTopics",auth,access,listFollowingTopics)
 //列出用户提出的问题 id:用户id
 usersRouter.get("/:id/questions",auth,access,listQuestions)
 
+//对答案进行赞
+usersRouter.put("/like/:answerId",auth,answerExist,like)
+//对答案取消赞
+usersRouter.del("/like/:answerId",auth,answerExist,unlike)
+//列出用户赞过的答案 id:用户id
+usersRouter.get("/:id/answerLikes",userExist,listAnswerLikes)
 
+//对答案进行踩
+usersRouter.put("/dislike/:answerId",auth,answerExist,dislike)
+//对答案取消踩
+usersRouter.del("/dislike/:answerId",auth,answerExist,unDislike)
+//列出用户踩过的答案
+usersRouter.get("/:id/answerDisLikes",userExist,listAnswerDisLikes)
 
 module.exports=usersRouter;

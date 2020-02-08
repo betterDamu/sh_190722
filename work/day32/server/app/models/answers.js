@@ -30,7 +30,9 @@ const answersSchema = Schema({
         type:Schema.Types.ObjectID,
         ref:"Questions",
         required:true
-    }
+    },
+    //被赞的次数
+    favs:{type:Number}
 })
 
 module.exports=model("Answers",answersSchema)

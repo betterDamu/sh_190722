@@ -50,7 +50,6 @@ const usersSchema = Schema({
         }],
         select:false
     },
-
     //代表的是用户关注了哪些话题
     followingTopics:{
         type:[
@@ -60,6 +59,22 @@ const usersSchema = Schema({
             }
         ],
         select:false
+    },
+    likeAnswers:{
+        type:[{
+            type:Schema.Types.ObjectId,
+            ref:"Answers"
+        }],
+        select:false,
+        default:[]
+    },
+    disLikeAnswers:{
+        type:[{
+            type:Schema.Types.ObjectId,
+            ref:"Answers"
+        }],
+        select:false,
+        default:[]
     }
 });
 module.exports = model('Users', usersSchema);

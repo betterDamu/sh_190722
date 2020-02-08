@@ -1,5 +1,6 @@
 const usersModel = require("../models/users");
 const questionsModel = require("../models/questions");
+const answersModel = require("../models/answers");
 const jsonwebtoken = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const config = require("../config")
@@ -66,7 +67,7 @@ class Users {
         console.log(selectFields)
         let id = ctx.params.id;
         let user = await usersModel.findById(id).select(selectFields)
-                                    .populate("followingTopics");
+                                    .populate("followingTopics likeAnswers disLikeAnswers");
         if(!user) ctx.throw(404,"当前用户不存在")
         ctx.body=user;
     };
@@ -206,6 +207,68 @@ class Users {
         ctx.body = questions;
     }
 
+    async like(ctx){
+        //找到当前的登录者
+        const me = await usersModel.findById(ctx.state.user._id).select("+likeAnswers");
+        const answerId = ctx.params.answerId;
+        if(!me.likeAnswers.includes(answerId)){
+            me.likeAnswers.push(answerId);
+            await answersModel.findByIdAndUpdate(ctx.params.answerId,{$inc:{favs:1}})
+            me.save();
+        }
+        ctx.status=204;
+    }
+
+    async unlike(ctx){
+        //找到当前的登录者
+        const me = await usersModel.findById(ctx.state.user._id).select("+likeAnswers");
+        const answerId = ctx.params.answerId;
+        if(me.likeAnswers.includes(answerId)){
+            const index = me.likeAnswers.indexOf(answerId);
+            me.likeAnswers.splice(index,1);
+            await answersModel.findByIdAndUpdate(ctx.params.answerId,{$inc:{favs:-1}})
+            me.save();
+        }
+        ctx.status=204;
+    }
+
+    async listAnswerLikes(ctx){
+        //找到当前的登录者
+        const user = await usersModel.findById(ctx.params.id)
+            .select("+likeAnswers").populate("likeAnswers");
+        ctx.body=user.likeAnswers;
+    }
+
+    async dislike(ctx){
+        //找到当前的登录者
+        const me = await usersModel.findById(ctx.state.user._id).select("+disLikeAnswers");
+        const answerId = ctx.params.answerId;
+        if(!me.disLikeAnswers.includes(answerId)){
+            me.disLikeAnswers.push(answerId);
+            me.save();
+        }
+        ctx.status=204;
+    }
+
+    async unDislike(ctx){
+        //找到当前的登录者
+        const me = await usersModel.findById(ctx.state.user._id).select("+disLikeAnswers");
+        const answerId = ctx.params.answerId;
+        if(me.disLikeAnswers.includes(answerId)){
+            const index = me.disLikeAnswers.indexOf(answerId);
+            me.disLikeAnswers.splice(index,1);
+            me.save();
+        }
+        ctx.status=204;
+    }
+
+    async listAnswerDisLikes(ctx){
+        //找到当前的登录者
+        const user = await usersModel.findById(ctx.params.id)
+            .select("+disLikeAnswers").populate("disLikeAnswers");
+        console.log(user.disLikeAnswers)
+        ctx.body=user.disLikeAnswers;
+    }
 }
 
 module.exports=new Users();
