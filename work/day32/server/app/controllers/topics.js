@@ -28,6 +28,11 @@ class Topics {
             introduction:{type:'string',required:false}
         });
 
+
+        let name = ctx.request.body.name;
+        let data = await questionsModel.findOne({name});
+        if(data) {ctx.throw(409,"话题已存在")}
+
         let topic = await topicsModel.create(ctx.request.body);
         let newTopic = await topicsModel.findById(topic._id);
         ctx.body = newTopic;

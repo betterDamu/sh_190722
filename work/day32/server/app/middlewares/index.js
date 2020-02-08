@@ -3,6 +3,7 @@ const config = require("../config");
 const basicAuth = require('basic-auth');
 const usersModel = require("../models/users");
 const topicsModel = require("../models/topics");
+const questionsModel = require("../models/questions");
 class MiddleWares {
     //登录验证
     async auth(ctx,next){
@@ -40,6 +41,22 @@ class MiddleWares {
     async topicExist(ctx,next){
         const topic =   await topicsModel.findById(ctx.params.id);
         if(!topic){ctx.throw(404,"对应的话题不存在")};
+        await next()
+    }
+
+    //判断一下对应的问题是否存在
+    async questionExist(ctx,next){
+        const question =   await questionsModel.findById(ctx.params.id);
+        if(!question){ctx.throw(404,"对应的问题不存在")};
+        await next()
+    }
+
+    //判断一下当前问题是不是属于当前用户
+    async questionIsLogin(ctx,next){
+        const question =   await questionsModel.findById(ctx.params.id);
+        if(ctx.state.user._id !== question.questioner.toString()){
+            ctx.throw(401,"当前问题 不属于 当前用户")
+        }
         await next()
     }
 }
