@@ -12,6 +12,13 @@ const wxUsersSchema = Schema({
     // 每一个微信对于任意一款小程序都会有一个唯一的openid
     // damu 小程序A 12345
     // damu 小程序B 89898
-    openid:{type:String,required:true}
+    openid:{type:String,required:true,select:false},
+    avatarUrl:{type:String,required:false},
+    city:{type:String,required:false},
+    country:{type:String,required:false},
+    gender:{type:Number,required:false},
+    language:{type:String,required:false},
+    nickName:{type:String,required:false},
+    province:{type:String,required:false}
 });
 module.exports = model('wx_users', wxUsersSchema);
