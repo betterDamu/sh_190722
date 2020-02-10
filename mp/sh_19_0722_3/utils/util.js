@@ -1,3 +1,10 @@
+// 1. 封装公共的缓存工具类
+// 2. 封装公共的路由工具类
+// 3. 封装公共的请求工具类
+
+
+
+//日期格式化
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -14,6 +21,8 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+
+//评星工具类 传入分数之后计算星星的个数
 const LENGTH = 5;
 const getStarsArr = stars => {
   let arr = [];
@@ -36,6 +45,8 @@ const getStarsArr = stars => {
   return arr;
 }
 
+
+//柯里化的请求工具
 const http = (url, callBack,...arg) => {
   wx.showNavigationBarLoading();
   wx.request({

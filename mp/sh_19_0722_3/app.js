@@ -1,3 +1,4 @@
+import store from "./utils/store.js"
 App({
   globalData:{
     BASEURL:"http://t.yushu.im",
@@ -5,7 +6,8 @@ App({
   },
   onLaunch(){
     //拿到code 向我们自己的服务器发送请求 让自己的服务器去访问微信的服务器 换取openid
-    if (!wx.getStorageSync("uid")){
+    // if (!wx.getStorageSync("uid")){
+    if (!store.getItem("uid","userInfo")){  
       wx.login({
         success(res) {
           let code = res.code;
@@ -17,7 +19,8 @@ App({
             },
             success(res) {
               //将uid保存到客户端的缓存中
-              wx.setStorageSync('uid', res.data.uid)
+              // wx.setStorageSync('uid', res.data.uid)
+              store.setItem('uid', res.data.uid,"userInfo")
             }
           })
         }

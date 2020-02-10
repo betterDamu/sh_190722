@@ -1,13 +1,15 @@
 // pages/index/index.js
 const app = getApp();
+import store from "../../utils/store.js";
+import router from "../../utils/router.js"
 Page({
   data:{
     userInfo:{},
     hasUserInfo:false // true:用户已经授权过 false:用户没有授权
   },
   toAtguigu(){
-    wx.switchTab({
-      url:"/pages/atguigu/index"
+    router.push("atguigu",{
+      type:"switchTab"
     })
   },
   onLoad(){
@@ -31,13 +33,15 @@ Page({
   getUserInfo(ev){
     //点击拒绝 ev.detail.userInfo: undefined
     if (ev.detail.userInfo){
-      const uid = wx.getStorageSync("uid")
+      // const uid = wx.getStorageSync("uid")
+      const uid = store.getItem("uid","userInfo");
       wx.request({
         url: `http://localhost:8080/wx_users/${uid}/saveUserInfo`,
         method: "post",
         data: ev.detail.userInfo,
         success:(res)=> {
-          wx.setStorageSync("token", res.data.token);
+          // wx.setStorageSync("token", res.data.token);
+          store.setItem("token", res.data.token,"userInfo")
           this.setData({
             hasUserInfo:true,
             userInfo: ev.detail.userInfo
