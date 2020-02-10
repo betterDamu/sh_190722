@@ -1,0 +1,17 @@
+<!--pages/index/index.wxml-->
+<view class='wrap'> 
+  <!-- 点击当前按钮时 获取到微信用户的相关信息 存入到我们自己的数据库 -->
+  <!-- 
+    拿到用户信息
+    发给我们的服务器
+    服务器负责保存 
+  -->
+  <button wx:if="{{!hasUserInfo}}" class='login' type='primary' open-type='getUserInfo' 
+  bindgetuserinfo='getUserInfo'>微信登录</button>
+
+  <view wx:else class='userInfo'>
+    <image src="{{userInfo.avatarUrl}}" bind:tap="toAtguigu"></image>
+    <text>{{userInfo.nickName}}</text>
+  </view>
+
+</view>

@@ -1,0 +1,19 @@
+<!--pages/movies/movies.wxml-->
+<import src="./row/row" />
+<import src="./more/gird/gird" />
+
+<view class='movies'>
+  <view class='searchWrap'>
+    <icon class='search' type='search' size='22' color='#405f80'></icon>
+    <input class='text' placeholder='金刚葫芦娃' value="{{value}}" placeholder-class="placeholder" bindfocus="handleFocus" bindconfirm="handleConfirm"></input>
+    <icon wx:if="{{showGirds}}" class='clear' size='22' color='#405f80' type='clear' bind:tap="handleClear" ></icon>
+  </view>
+
+  <block wx:if="{{showRows}}">
+     <template is="row" wx:for="{{movies}}" data="{{...item}}"></template> 
+  </block>
+ 
+  <block wx:if="{{showGirds}}">
+    <template is="gird"  data="{{movies:searchMovies}}"></template> 
+  </block>  
+</view>

@@ -1,0 +1,14 @@
+/* 优势区域 */
+.wrap .goodness{
+  display: flex;
+  flex-direction: column;
+  height: 580rpx;
+  margin-top: 38rpx;
+  align-items: center
+}
+.wrap .goodness .title1{font-size: 44rpx;}
+.wrap .goodness .title2{font-size: 29rpx;}
+.wrap .goodness image{
+  margin-top: 33rpx;
+  width: 100%;
+}

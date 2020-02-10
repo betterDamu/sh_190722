@@ -1,0 +1,77 @@
+.detail-container{
+    display:flex;
+    flex-direction:column;
+}
+.detail-container .head-image{
+    width: 100%;
+}
+.detail-container .author-date{
+    flex-direction:row;
+    margin-left: 30rpx;
+    margin-top:20rpx;
+}
+.detail-container .date{
+    font-size: 24rpx;
+    margin-left: 30rpx;
+    vertical-align: middle;
+    color:#999;
+}
+.detail-container .title{
+    margin-left:40rpx;
+    font-size: 36rpx;
+    font-weight:700;
+    margin-top:30rpx;
+    letter-spacing: 2px;
+    color:#4b556c;
+}
+.detail-container .avatar{
+    height: 64rpx;
+    width:64rpx;
+    vertical-align: middle;
+}
+.detail-container .author{
+    font-size: 30rpx;
+    font-weight: 300;
+    margin-left: 20rpx;
+    vertical-align: middle;
+    color:#666;
+}
+.detail-container .tool{
+    margin-top:20rpx;
+}
+.detail-container .circle-img{
+    float:right;
+    margin-right: 40rpx;
+    vertical-align: middle;
+}
+.detail-container .circle-img image{
+    width:90rpx;
+    height: 90rpx
+}
+.detail-container .share-img{
+    margin-left: 30rpx;
+}
+.detail-container .horizon{
+    width:660rpx;
+    height: 2rpx;
+    background-color: #e5e5e5;
+    vertical-align: middle;
+    position:relative;
+    top:46rpx;
+    margin: 0 auto;
+    z-index: -99
+}
+.detail-container .const-text{
+    font-size: 24rpx;
+    color:#999;
+    margin-left: 20rpx;
+}
+.detail-container .detail{
+    color:#666;
+    margin-left:20rpx;
+    margin-top:20rpx;
+    margin-right:30rpx;
+    line-height: 44rpx;
+    letter-spacing: 2rpx;
+    font-size: 24rpx;
+}

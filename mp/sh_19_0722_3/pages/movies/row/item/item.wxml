@@ -1,0 +1,8 @@
+<import src="./stars/stars" />
+<template name="item">
+  <view class='item'>
+    <image class="post" src="{{postImgUrl}}"></image>
+    <text class='name'>{{name}}</text>
+    <template is="stars" data="{{score,stars}}"></template>
+  </view>
+</template>

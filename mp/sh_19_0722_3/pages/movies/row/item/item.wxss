@@ -1,0 +1,21 @@
+@import "./stars/stars";
+.item{
+ display: inline-flex;
+ flex-direction: column; 
+ margin: 0 22rpx;
+ width: 200rpx;
+ overflow: hidden;
+}
+.item .post{
+  width: 200rpx;
+  height: 270rpx;
+  margin-bottom: 20rpx;
+}
+.item .name{
+  font-size: 24rpx;
+  margin-bottom: 16rpx;
+  width:200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

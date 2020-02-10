@@ -1,0 +1,30 @@
+/* pages/movies/movies.wxss */
+
+
+
+
+@import "./row/row";
+.movies{
+  background: #f2f2f2
+}
+
+.movies .searchWrap {
+  display: flex;
+  background: #f2f2f2;
+  height: 80rpx;
+  align-items: center
+}
+.movies .searchWrap .search{
+  margin-left: 10rpx
+}
+.movies .searchWrap .text{
+  width: 600rpx;
+  padding-left: 20rpx;
+}
+.movies .searchWrap .clear{
+  margin-left: 10rpx;
+}
+.placeholder{
+  font-size: 28rpx;
+  color: #d1d1d1
+}

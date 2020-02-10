@@ -1,0 +1,4 @@
+<!--pages/movies/more/more.wxml-->
+<import src="./gird/gird" />
+<template is="gird" data="{{movies}}"></template>
+

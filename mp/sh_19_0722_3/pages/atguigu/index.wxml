@@ -1,0 +1,59 @@
+<!--pages/atguigu/index.wxml-->
+<import src="./template/template.wxml" />
+<view class='wrap'>
+  <view class='header'>
+    <image src="./img/header/top.jpg"></image>
+  </view>
+  <swiper indicator-dots="true" indicator-color="white"                 indicator-active-color="red" duration="1000">
+    <swiper-item>
+        <image src="./img/swiper/1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="./img/swiper/2.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="./img/swiper/3.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="./img/swiper/4.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+        <image src="./img/swiper/5.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <view class='navs'>
+    <view class='title'>
+      <text>{{listData.title}}</text>
+      <text>{{listData.title2}}</text>
+    </view>
+    <view class='course'>
+      <view class='item' wx:for="{{listData.courses}}" wx:key="{{index}}">
+        <image src='{{listData.courseUrls[index]}}'></image>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view bind:tap="handleTap" data-list-id="{{item.newsid}}" wx:for="{{templateDatas}}">
+    <template  is="goodness"  data="{{...item}}" wx:key="index"></template>
+  </view>
+  <view class='footer'>
+    <view class='left'>
+      <image src="./img/info/info.jpg"></image>
+      <text>尚硅谷官方微信:atguigu</text>
+    </view>
+    <view class='right'>
+      <view class='r_top'>
+        <text>校区:</text>
+        <text>北京昌平区宏福科技园综合楼3层(北京)</text>
+        <text>深圳市宝安区西部硅谷大厦B座3层(深圳)</text>
+        <text>上海市松江区大江大厦3层(上海)</text>
+      </view>
+      <view class='r_bottom'>
+        <text>电话:</text>
+        <text>010-56253825(北京)</text>
+        <text>0755-85293825(深圳)</text>
+        <text>021-85293825(上海)</text>
+      </view>
+    </view>
+  </view>
+</view>

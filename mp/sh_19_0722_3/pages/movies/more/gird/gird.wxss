@@ -1,0 +1,7 @@
+@import "../../row/item/item";
+.gird{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: white
+}

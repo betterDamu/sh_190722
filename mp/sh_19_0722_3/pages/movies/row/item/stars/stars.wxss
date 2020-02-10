@@ -1,0 +1,16 @@
+.stars{
+  display: inline-flex;
+  align-items: center;
+}
+.stars .star{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right:3rpx; 
+}
+.stars .star:last-child{
+  margin-right:0rpx; 
+}
+.stars .score{
+  color: #1f3463;
+  margin-left:24rpx; 
+}
