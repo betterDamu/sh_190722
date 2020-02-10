@@ -2,7 +2,10 @@
 // 2. 封装公共的路由工具类
 // 3. 封装公共的请求工具类
 
-
+//获取平台信息
+const getSystemInfo = ()=>{
+  return wx.getSystemInfoSync()
+}
 
 //日期格式化
 const formatTime = date => {
@@ -66,5 +69,6 @@ const http = (url, callBack,...arg) => {
 module.exports = {
   formatTime: formatTime,
   getStarsArr: getStarsArr,
-  http: http
+  http: http,
+  getSystemInfo
 }

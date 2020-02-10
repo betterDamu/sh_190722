@@ -1,7 +1,9 @@
 // pages/index/index.js
 const app = getApp();
 import store from "../../utils/store.js";
-import router from "../../utils/router.js"
+import router from "../../utils/router.js";
+import http from "../../utils/http.js";
+import api from "../../api/index.js"
 Page({
   data:{
     userInfo:{},
@@ -30,23 +32,16 @@ Page({
       }
     }
   },
-  getUserInfo(ev){
+  async getUserInfo(ev){
     //点击拒绝 ev.detail.userInfo: undefined
     if (ev.detail.userInfo){
       // const uid = wx.getStorageSync("uid")
       const uid = store.getItem("uid","userInfo");
-      wx.request({
-        url: `http://localhost:8080/wx_users/${uid}/saveUserInfo`,
-        method: "post",
-        data: ev.detail.userInfo,
-        success:(res)=> {
-          // wx.setStorageSync("token", res.data.token);
-          store.setItem("token", res.data.token,"userInfo")
-          this.setData({
-            hasUserInfo:true,
-            userInfo: ev.detail.userInfo
-          })
-        }
+      await http.post(api.saveUserInfo, ev.detail.userInfo)
+      store.setItem("token", res.data.token, "userInfo")
+      this.setData({
+        hasUserInfo: true,
+        userInfo: ev.detail.userInfo
       })
     }
   }

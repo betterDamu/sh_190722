@@ -1,4 +1,7 @@
-import store from "./utils/store.js"
+import store from "./utils/store.js";
+import http from "./utils/http.js";
+import api from "./api/index.js";
+import regeneratorRuntime from 'regenerator-runtime/index.js'
 App({
   globalData:{
     BASEURL:"http://t.yushu.im",
@@ -9,20 +12,12 @@ App({
     // if (!wx.getStorageSync("uid")){
     if (!store.getItem("uid","userInfo")){  
       wx.login({
-        success(res) {
+        //微信不允许在它的的回调函数上使用async  --> regeneratorRuntime
+        // regenerator@0.13.1
+        async success(res) {
           let code = res.code;
-          wx.request({
-            url: 'http://localhost:8080/wx_users/getOpenId',
-            method: "POST",
-            data: {
-              code
-            },
-            success(res) {
-              //将uid保存到客户端的缓存中
-              // wx.setStorageSync('uid', res.data.uid)
-              store.setItem('uid', res.data.uid,"userInfo")
-            }
-          })
+          let data = await http.post(api.getOpenId,{code});
+          store.setItem('uid', data.uid, "userInfo")
         }
       })
     }

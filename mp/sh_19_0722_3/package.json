@@ -1,0 +1,16 @@
+{
+  "name": "sh_19_0722_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "0722.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "regenerator": "^0.13.1",
+    "weapp-utils": "^1.0.3"
+  }
+}
