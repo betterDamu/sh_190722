@@ -88,6 +88,13 @@ class Journals {
 
         ctx.body = journal;
     }
+
+    async getFavs(ctx){
+        let journal = await wxJournalsModel.findById(ctx.params.id);
+        ctx.body={
+            favs:journal.favs
+        }
+    }
 }
 
 module.exports=new Journals();

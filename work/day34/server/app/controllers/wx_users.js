@@ -2,6 +2,9 @@ const wxUsersModel = require("../models/wx_users");
 const wxJournalsModel = require("../models/wx_journals");
 const config = require("../config/index");
 const jsonwebtoken = require("jsonwebtoken");
+const moviesModel = require("../models/wx_movies");
+const musicsModel =require("../models/wx_musics");
+const sentencesModel = require("../models/wx_sentences");
 const axios = require("axios");
 class Users {
     async getOpenId(ctx){
@@ -79,6 +82,34 @@ class Users {
             user.save()
         }
         ctx.status=204;
+    }
+
+    async listJournalsLikes(ctx){
+        const user =await wxUsersModel.findById(ctx.state.user.uid)
+            .select("+likeJournals").populate("likeJournals");
+
+        //这个确实是用户喜欢的期刊 可是它包含是概要信息 不是详细信息
+        const  likeJournals = user.likeJournals;
+
+        let arr =[];
+        let model = "";
+        for(let i=0;i<likeJournals.length;i++){
+            switch (likeJournals[i].type){
+                case 100:
+                    model = moviesModel;
+                    break;
+                case 200:
+                    model = musicsModel;
+                    break;
+                case 300:
+                    model =sentencesModel
+                    break;
+            }
+            let full  = await model.findById(likeJournals[i].journal_id);
+            arr.push(full)
+        }
+
+        ctx.body = arr;
     }
 }
 
