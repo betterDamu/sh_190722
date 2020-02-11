@@ -19,6 +19,16 @@ const wxUsersSchema = Schema({
     gender:{type:Number,required:false},
     language:{type:String,required:false},
     nickName:{type:String,required:false},
-    province:{type:String,required:false}
+    province:{type:String,required:false},
+    likeJournals:{
+        type:[
+            {
+                type:Schema.Types.ObjectID,
+                ref:"wx_journals"
+            },
+        ],
+        select:false,
+        default:[]
+    }
 });
 module.exports = model('wx_users', wxUsersSchema);

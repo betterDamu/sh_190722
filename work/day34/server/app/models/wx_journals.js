@@ -5,6 +5,6 @@ const journalsSchema = Schema({
     index:{type:Number},
     type:{type:Number},
     journal_id:{type:Schema.Types.ObjectID},
-    favs:{type:Number}
+    favs:{type:Number,default:0}
 });
 module.exports = model('wx_journals', journalsSchema);

@@ -1,4 +1,5 @@
 const wxUsersModel = require("../models/wx_users");
+const wxJournalsModel = require("../models/wx_journals");
 const config = require("../config/index");
 const jsonwebtoken = require("jsonwebtoken");
 const axios = require("axios");
@@ -51,6 +52,34 @@ class Users {
         }
     }
 
+    async like (ctx){
+        //点赞期刊的id
+        const  id = ctx.params.id;
+        //找到当前登录的用户  ctx.state.user.uid(代表用户集合的主键)
+        const user =await wxUsersModel.findById(ctx.state.user.uid).select("+likeJournals");
+        if(!user.likeJournals.includes(id)){
+            user.likeJournals.push(id);
+            //修改当前期刊的点赞数
+            await wxJournalsModel.findByIdAndUpdate(id,{$inc:{favs:1}})
+            user.save()
+        }
+        ctx.status=204;
+    }
+
+    async unlike(ctx){
+        //点赞期刊的id
+        const  id = ctx.params.id;
+        //找到当前登录的用户  ctx.state.user.uid(代表用户集合的主键)
+        const user =await wxUsersModel.findById(ctx.state.user.uid).select("+likeJournals");
+        if(user.likeJournals.includes(id)){
+            const index = user.likeJournals.indexOf(id);
+            user.likeJournals.splice(index,1);
+            //修改当前期刊的点赞数
+            await wxJournalsModel.findByIdAndUpdate(id,{$inc:{favs:-1}})
+            user.save()
+        }
+        ctx.status=204;
+    }
 }
 
 module.exports=new Users();
