@@ -1,7 +1,39 @@
 ### 作业
     1. 实现赞和踩的互斥关系!!!
-    2. 实现小程序项目的所有接口
+    2. 实现小程序项目的所有接口'
+        期刊有三个类型: 电影期刊 音乐期刊 句子期刊
+        期刊信息的总的集合:wx_journals
+        电影的集合:wx_movies
+        音乐的集合:wx_musics
+        句子的集合:wx_sentences
+            期刊集合的CUD操作不在我们的小程序端;小程序端一般做展现功能
+            期刊集合的CUD操作(生产力操作):会在pc端的后台管理系统中进行
 
+        wx_journals:
+            _id
+            index:代表期刊的发布顺序
+            type:100(电影)/200(音乐)/300(句子)
+            journal_id:具体的期刊信息
+            favs:当前期刊被点赞的次数
+        wx_movies:
+            _id
+            image:代表电影的封面
+            title:电影的标题
+            content:电影中的金典台词
+            type:类型
+        wx_musics
+            _id
+            image:代表电影的封面
+            title:电影的标题
+            content:电影中的金典台词
+            type:类型
+            src:音乐的连接地址
+        wx_sentences:
+            _id
+            image:代表电影的封面
+            title:电影的标题
+            content:电影中的金典台词
+            type:类型
 
 ### postman中目录的意义
     用户      : 基本的CRUD 登录注册 文件上传
