@@ -4,7 +4,8 @@
     "pages/movies/movies",
     "pages/atguigu/index",
     "pages/atguigu/detail/index",
-    "pages/movies/more/more"
+    "pages/movies/more/more",
+    "pages/journals/journals"
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",

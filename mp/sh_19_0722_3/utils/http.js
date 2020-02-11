@@ -44,7 +44,6 @@ class Http{
       }
 
       //使用微信的api发请求
-      console.log(merge(BaseHeader, header))
       wx.request({
         url,
         data,

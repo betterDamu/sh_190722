@@ -13,5 +13,4 @@
     <image src="{{userInfo.avatarUrl}}" bind:tap="toAtguigu"></image>
     <text>{{userInfo.nickName}}</text>
   </view>
-
 </view>

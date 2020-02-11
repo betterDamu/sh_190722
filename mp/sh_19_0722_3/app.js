@@ -34,6 +34,7 @@ App({
               this.globalData.userInfo = res.userInfo;
 
               //订阅 发布
+              //到底是success先执行 还是index的onload先执行
               if (this.userInfoReadyCallBak){
                 this.userInfoReadyCallBak(res)
               }
