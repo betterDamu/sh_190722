@@ -1,0 +1,65 @@
+/* pages/wuhan/index.wxss */
+.bannerWrap{
+  height: 300rpx;
+  width: 100%;
+}
+
+.bannerImg{
+  height: 300rpx;
+  width: 115%;
+}
+
+.content{
+  padding: 10rpx 0;
+}
+
+.item{
+  display: inline-flex;
+  width: 150rpx;
+  height: 150rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.count {
+    font-size: 35rpx;
+    font-weight: 700;
+}
+
+.smallCount{
+    font-size: 25rpx;
+}
+
+.title{
+  padding: 8rpx 0;
+  font-size: 25rpx;
+}
+
+.confirmed {
+    color: #f74c31;
+}
+
+.suspected {
+    color: #f78207;
+}
+
+.serious {
+    color: #a25a4e;
+}
+
+.dead {
+    color: #5d7092;
+}
+
+.cured {
+    color: #28b7a3;
+}
+
+.column-title {
+    margin: 20rpx;
+    padding-left: 20rpx;
+    border-left: 4px solid #07c160;
+}

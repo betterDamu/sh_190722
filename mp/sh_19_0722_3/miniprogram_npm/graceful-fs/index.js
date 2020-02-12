@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1581475919352, function(require, module, exports) {
+__DEFINE__(1581492155669, function(require, module, exports) {
 var fs = require('fs')
 var polyfills = require('./polyfills.js')
 var legacy = require('./legacy-streams.js')
@@ -352,8 +352,8 @@ function retry () {
   }
 }
 
-}, function(modId) {var map = {"./polyfills.js":1581475919353,"./legacy-streams.js":1581475919354,"./clone.js":1581475919355}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581475919353, function(require, module, exports) {
+}, function(modId) {var map = {"./polyfills.js":1581492155670,"./legacy-streams.js":1581492155671,"./clone.js":1581492155672}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581492155670, function(require, module, exports) {
 var constants = require('constants')
 
 var origCwd = process.cwd
@@ -698,7 +698,7 @@ function patch (fs) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581475919354, function(require, module, exports) {
+__DEFINE__(1581492155671, function(require, module, exports) {
 var Stream = require('stream').Stream
 
 module.exports = legacy
@@ -819,7 +819,7 @@ function legacy (fs) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581475919355, function(require, module, exports) {
+__DEFINE__(1581492155672, function(require, module, exports) {
 
 
 module.exports = clone
@@ -841,6 +841,6 @@ function clone (obj) {
 }
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1581475919352);
+return __REQUIRE__(1581492155669);
 })()
 //# sourceMappingURL=index.js.map

@@ -16,5 +16,8 @@ export default{
     return `/wx_users/${journalId}/like`  
   },
   //列出用户喜欢过的期刊
-  likeJournals:"/wx_users/journalsLikes"
+  likeJournals:"/wx_users/journalsLikes",
+  //拿实时的疫情的信息
+  getInfoForepidemic:"/api?version=epidemic&appid=45521934&appsecret=Bhove2gJ",
+  getStats:"/api/stats"
 }

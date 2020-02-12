@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/wuhan/index",
     "pages/journals/journals",
     "pages/movies/movies",
     "pages/atguigu/index",
@@ -16,6 +17,12 @@
   },
   "tabBar": {
     "list": [
+      {
+        "pagePath": "pages/wuhan/index",
+        "text": "全民抗疫",
+        "iconPath": "pages/wuhan/img/wuhan.png",
+        "selectedIconPath": "pages/wuhan/img/wuhan@highlight.png"
+      },
       {
         "pagePath": "pages/movies/movies",
         "text": "硅谷影院",

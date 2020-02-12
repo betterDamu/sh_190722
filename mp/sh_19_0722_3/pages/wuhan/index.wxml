@@ -1,0 +1,29 @@
+<!--pages/wuhan/index.wxml-->
+<view class='wuhan'>
+  <view class='bannerWrap'>
+    <image class='bannerImg' src="./img/banner.png"></image>
+  </view>
+  <view class='content'>
+    <van-notice-bar 
+      text="武汉牵动着全国人民的心，劲头上来了，全国帮忙，武汉肯定能过关！加油武汉！加油中国"
+      backgroundColor="#ffffff"
+      left-icon="volume-o"
+      speed="70"></van-notice-bar>
+  </view>
+  <van-grid column-num="5">
+    <view class='item' wx:for="{{arr}}">
+      <text class='count {{item.className}}'>{{item.count}}</text>
+      <text class='title'>{{item.title}}</text>
+      <text class='smallCount {{item.className}}'>+{{item.inc}}</text>
+    </view>
+  </van-grid>
+  <view class="column-title">
+      <text class="txt">疫情小知识</text>
+  </view>
+   <van-cell title="小知识1" icon="info-o" label="{{stats.note1}}" />
+   <van-cell title="小知识2" icon="info-o" label="{{stats.note2}}" />
+   <van-cell title="小知识3" icon="info-o" label="{{stats.note3}}" />
+   <van-cell title="小知识4" icon="info-o" label="{{stats.remark1}}" />
+   <van-cell title="小知识5" icon="info-o" label="{{stats.remark2}}" />
+   <van-cell title="小知识6" icon="info-o" label="{{stats.remark3}}" />
+</view>
