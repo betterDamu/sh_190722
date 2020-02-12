@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1581324618467, function(require, module, exports) {
+__DEFINE__(1581475919414, function(require, module, exports) {
 
 
 exports.__esModule = true;
@@ -34,8 +34,8 @@ function _default(context) {
 
   return plugin;
 }
-}, function(modId) {var map = {"./visit":1581324618468}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618468, function(require, module, exports) {
+}, function(modId) {var map = {"./visit":1581475919415}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919415, function(require, module, exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -325,8 +325,8 @@ var awaitVisitor = {
     util.replaceWithOrRemove(path, t.yieldExpression(t.callExpression(util.runtimeProperty("awrap"), [argument]), false));
   }
 };
-}, function(modId) { var map = {"./hoist":1581324618469,"./emit":1581324618471,"./replaceShorthandObjectMethod":1581324618474,"./util":1581324618470}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618469, function(require, module, exports) {
+}, function(modId) { var map = {"./hoist":1581475919416,"./emit":1581475919418,"./replaceShorthandObjectMethod":1581475919421,"./util":1581475919417}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919416, function(require, module, exports) {
 
 
 var util = _interopRequireWildcard(require("./util"));
@@ -455,8 +455,8 @@ exports.hoist = function (funPath) {
 
   return t.variableDeclaration("var", declarations);
 };
-}, function(modId) { var map = {"./util":1581324618470}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618470, function(require, module, exports) {
+}, function(modId) { var map = {"./util":1581475919417}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919417, function(require, module, exports) {
 
 
 exports.__esModule = true;
@@ -514,7 +514,7 @@ function replaceWithOrRemove(path, replacement) {
   }
 }
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618471, function(require, module, exports) {
+__DEFINE__(1581475919418, function(require, module, exports) {
 
 
 var _assert = _interopRequireDefault(require("assert"));
@@ -1463,8 +1463,8 @@ Ep.explodeExpression = function (path, ignoreResult) {
       throw new Error("unknown Expression of type " + JSON.stringify(expr.type));
   }
 };
-}, function(modId) { var map = {"./leap":1581324618472,"./meta":1581324618473,"./util":1581324618470}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618472, function(require, module, exports) {
+}, function(modId) { var map = {"./leap":1581475919419,"./meta":1581475919420,"./util":1581475919417}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919419, function(require, module, exports) {
 
 
 var _assert = _interopRequireDefault(require("assert"));
@@ -1643,8 +1643,8 @@ LMp.getBreakLoc = function (label) {
 LMp.getContinueLoc = function (label) {
   return this._findLeapLocation("continueLoc", label);
 };
-}, function(modId) { var map = {"./emit":1581324618471,"util":1581324618470,"./util":1581324618470}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618473, function(require, module, exports) {
+}, function(modId) { var map = {"./emit":1581475919418,"util":1581475919417,"./util":1581475919417}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919420, function(require, module, exports) {
 
 
 var _assert = _interopRequireDefault(require("assert"));
@@ -1751,8 +1751,8 @@ for (var type in leapTypes) {
 
 exports.hasSideEffects = makePredicate("hasSideEffects", sideEffectTypes);
 exports.containsLeap = makePredicate("containsLeap", leapTypes);
-}, function(modId) { var map = {"./util.js":1581324618470}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618474, function(require, module, exports) {
+}, function(modId) { var map = {"./util.js":1581475919417}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919421, function(require, module, exports) {
 
 
 exports.__esModule = true;
@@ -1832,7 +1832,7 @@ function replaceShorthandObjectMethod(path) {
 
   return path.get("value");
 }
-}, function(modId) { var map = {"./util":1581324618470}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1581324618467);
+}, function(modId) { var map = {"./util":1581475919417}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1581475919414);
 })()
 //# sourceMappingURL=index.js.map

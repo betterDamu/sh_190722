@@ -1,0 +1,5 @@
+<!--components/favs/index.wxml-->
+<view class='favs-wrap' bind:tap="handleTap">
+  <image src="{{isLike?likeSrc:disLikeSrc}}"></image>
+  <text>{{favs}}</text>
+</view>

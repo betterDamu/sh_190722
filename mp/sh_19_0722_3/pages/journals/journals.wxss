@@ -1,1 +1,51 @@
-/* pages/journals/journals.wxss */
+.journals-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journals-header{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top:1px solid #f5f5f5;
+  border-bottom:1px solid #f5f5f5; 
+}
+
+.journals-header .open {
+  display: flex;
+  align-items: center
+}
+
+.journals-header .open .share{
+  border: none !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 20rpx;
+}
+.journals-header .open .share image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.journals-img{
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.tag{
+  width: 46rpx;
+  height: 142rpx;
+  position: relative;
+  right: 310rpx;
+  bottom: 50rpx;
+}
+
+.content{
+  font-size: 36rpx;
+  max-width: 550rpx;
+}

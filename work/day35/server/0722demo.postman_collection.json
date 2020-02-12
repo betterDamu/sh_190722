@@ -1,0 +1,1514 @@
+{
+	"info": {
+		"_postman_id": "3104023d-9e24-46a7-8ab7-a0ed319372ab",
+		"name": "0722demo",
+		"description": "koa的测试文件",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "关注与粉丝",
+			"item": [
+				{
+					"name": "关注用户",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/following/5e372a2cbc1aa943a060fa68",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"following",
+								"5e372a2cbc1aa943a060fa68"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消关注",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/following/5e372a2cbc1aa943a060fa68",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"following",
+								"5e372a2cbc1aa943a060fa68"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "列出关注者",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e370d459ea39d6be8b924fd/following",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e370d459ea39d6be8b924fd",
+								"following"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "列出粉丝",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e3712919979596b38229448/followers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e3712919979596b38229448",
+								"followers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "话题",
+			"item": [
+				{
+					"name": "获取话题列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/topics?pre_page=2&page=2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"topics"
+							],
+							"query": [
+								{
+									"key": "pre_page",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id获取指定话题",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/topics/5e394f1cf25e7d4ad8b70a7e?fields=introduction",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"topics",
+								"5e394f1cf25e7d4ad8b70a7e"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "introduction"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增话题",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODEzOTgwLCJleHAiOjE1ODE0MTg3ODB9.m5p-CDFC7aCcwrcM6f-GS75fdRtxtYnqYBijWyv3LV8",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"阿里巴巴8\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/topics",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"topics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id修改话题",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODEzOTgwLCJleHAiOjE1ODE0MTg3ODB9.m5p-CDFC7aCcwrcM6f-GS75fdRtxtYnqYBijWyv3LV8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"计算机科学与技术\",\n    \"introduction\":\"一个出来就是加班狗的行业\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/topics/5e394f1cf25e7d4ad8b70a7e",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"topics",
+								"5e394f1cf25e7d4ad8b70a7e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "关注话题",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODIwOTAwLCJleHAiOjE1ODE0MjU3MDB9.l9Ljr5YR7kz23RW-STSd5Q73ZLsoD23kfaCVEMJL6MY",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/followingTopics/5e39554244f83d3098f31ed6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"followingTopics",
+								"5e39554244f83d3098f31ed6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消关注话题",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/followingTopics/5e39554244f83d3098f31ed6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"followingTopics",
+								"5e39554244f83d3098f31ed6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "列出用户关注的话题",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e370d459ea39d6be8b924fd/followingTopics",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e370d459ea39d6be8b924fd",
+								"followingTopics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "列出话题的关注者",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/topics/5e39554244f83d3098f31ed6/followers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"topics",
+								"5e39554244f83d3098f31ed6",
+								"followers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "用户",
+			"item": [
+				{
+					"name": "获取用户列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/users?pre_page=10&page=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "pre_page",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id获取指定用户",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e370d459ea39d6be8b924fd?fields=locations;business;employments;educations",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e370d459ea39d6be8b924fd"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "locations;business;employments;educations"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增用户",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"laofu\",\n\t\"password\":\"laofu\",\n\t\"gender\":\"male\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id修改用户",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"avatarUrl\":\"http://127.0.0.1:8080/img/upload_f139995d0ccba7beb2318cc703a6780a.jpg\",\n            \"headline\":\"damu老师\",\n            \"business\":\"IT\",\n            \"locations\":[\"上海\",\"北京\",\"深圳\",\"广州\"],\n            \"employments\":[{\"company\":\"尚硅谷\",\"job\":\"前端老师\"}],\n            \"educations\":[{\"school\":\"清华大学\",\"major\":\"计算机科学与技术\",\"diploma\":3,\"entrance_year\":2010,\"graduation_year\":2014}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e370d459ea39d6be8b924fd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e370d459ea39d6be8b924fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id删除用户",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"damu\",\n\t\"age\":18\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/0",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"damu\",\n\t\"password\":\"damu\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户上传头像",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/code/WeChatCode/Atguigu/img/pic/student.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/upload/5e370d459ea39d6be8b924fd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"upload",
+								"5e370d459ea39d6be8b924fd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "问题",
+			"item": [
+				{
+					"name": "获取问题列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions?pre_page=10&page=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions"
+							],
+							"query": [
+								{
+									"key": "pre_page",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id获取指定问题",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions/5e39cd70bfddd03cb8a18c4a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"5e39cd70bfddd03cb8a18c4a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增问题",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZmFuZ2ZhbmciLCJpZCI6IjVlMzcxMjkxOTk3OTU5NmIzODIyOTQ0OCIsImlhdCI6MTU4MDg0NjQ5OCwiZXhwIjoxNTgxNDUxMjk4fQ.xu3GZ6JMeLDm-SNN2VPhGdiIMvYWhYFt4le18b30GF8",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"芳芳\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id修改问题",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODQ3MzczLCJleHAiOjE1ODE0NTIxNzN9.a76_CrJpWw16plzdxMCVURKfDBmJqrAAXBwAL6854Tc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"topics\":[\"5e39553544f83d3098f31ed3\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions/5e39cd70bfddd03cb8a18c4a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"5e39cd70bfddd03cb8a18c4a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id删除问题",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"damu\",\n\t\"age\":18\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/0",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定用户的问题列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e3712919979596b38229448/followingQuestions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e3712919979596b38229448",
+								"followingQuestions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定话题的问题列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/topics/5e39553544f83d3098f31ed3/questions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"topics",
+								"5e39553544f83d3098f31ed3",
+								"questions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "答案",
+			"item": [
+				{
+					"name": "获取答案列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions/5e39c6935e17174bbcc87881/answer",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"5e39c6935e17174bbcc87881",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id获取指定答案",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions/5e39c6935e17174bbcc87881/answer/5e3a518dd670261fac442807",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"5e39c6935e17174bbcc87881",
+								"answer",
+								"5e3a518dd670261fac442807"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新增答案",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODc5MjE3LCJleHAiOjE1ODE0ODQwMTd9.znYGcsN8bG_zUMt4qzvLOuzQO80zYOjLnJ5JUPPHF5s",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"因为达姆超级帅\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions/5e39c6935e17174bbcc87881/answer",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"5e39c6935e17174bbcc87881",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id修改话题",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODc5MjE3LCJleHAiOjE1ODE0ODQwMTd9.znYGcsN8bG_zUMt4qzvLOuzQO80zYOjLnJ5JUPPHF5s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"jjjjjjj\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions/5e39c6935e17174bbcc87881/answer/5e3a518dd670261fac442807",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"5e39c6935e17174bbcc87881",
+								"answer",
+								"5e3a518dd670261fac442807"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "通过id删除话题",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODc5MjE3LCJleHAiOjE1ODE0ODQwMTd9.znYGcsN8bG_zUMt4qzvLOuzQO80zYOjLnJ5JUPPHF5s",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"damu\",\n\t\"age\":18\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/questions/5e39c6935e17174bbcc87881/answer/5e3a518dd670261fac442807",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"5e39c6935e17174bbcc87881",
+								"answer",
+								"5e3a518dd670261fac442807"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "点赞答案",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODIwOTAwLCJleHAiOjE1ODE0MjU3MDB9.l9Ljr5YR7kz23RW-STSd5Q73ZLsoD23kfaCVEMJL6MY",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/followingLikeAnswers/5e3a639310f2753468a45c9a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"followingLikeAnswers",
+								"5e3a639310f2753468a45c9a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消赞",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/followingLikeAnswers/5e3a639310f2753468a45c9a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"followingLikeAnswers",
+								"5e3a639310f2753468a45c9a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "列出用户赞过的答案",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e370d459ea39d6be8b924fd/followingLikeAnswers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e370d459ea39d6be8b924fd",
+								"followingLikeAnswers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "踩答案",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwODIwOTAwLCJleHAiOjE1ODE0MjU3MDB9.l9Ljr5YR7kz23RW-STSd5Q73ZLsoD23kfaCVEMJL6MY",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/followingDisLikeAnswers/5e3a639310f2753468a45c9a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"followingDisLikeAnswers",
+								"5e3a639310f2753468a45c9a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消踩",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/followingDisLikeAnswers/5e3a639310f2753468a45c9a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"followingDisLikeAnswers",
+								"5e3a639310f2753468a45c9a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "列出用户踩过的答案",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGFtdSIsImlkIjoiNWUzNzBkNDU5ZWEzOWQ2YmU4YjkyNGZkIiwiaWF0IjoxNTgwNjY4NzkxLCJleHAiOjE1ODEyNzM1OTF9.6yT2DN-qbOkIeby6KRanB_VY_YFUC6E6alDwsKG2i6I",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/users/5e370d459ea39d6be8b924fd/followingDisLikeAnswers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"5e370d459ea39d6be8b924fd",
+								"followingDisLikeAnswers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2d3a4c08-55de-4032-a81c-fd9966e56ccc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "906bb7b5-76b1-464d-afb5-9d1b0e64bef1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

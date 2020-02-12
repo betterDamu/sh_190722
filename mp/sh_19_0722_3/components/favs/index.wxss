@@ -1,0 +1,22 @@
+/* components/favs/index.wxss */
+.favs-wrap{
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  width: 90rpx;
+  height: 60rpx;
+}
+
+.favs-wrap image{
+  width: 42rpx;
+  height: 38rpx;
+}
+
+.favs-wrap text{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #bbb;
+  position: relative;
+  top:-15rpx;
+  left: 5rpx;
+}

@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1581324618453, function(require, module, exports) {
+__DEFINE__(1581475919400, function(require, module, exports) {
 var types = require("./lib/types");
 var parse = require("./lib/parser").parse;
 var Printer = require("./lib/printer").Printer;
@@ -105,8 +105,8 @@ Object.defineProperties(exports, {
     }
 });
 
-}, function(modId) {var map = {"./lib/types":1581324618454,"./lib/parser":1581324618455,"./lib/printer":1581324618463}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618454, function(require, module, exports) {
+}, function(modId) {var map = {"./lib/types":1581475919401,"./lib/parser":1581475919402,"./lib/printer":1581475919410}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919401, function(require, module, exports) {
 // This module was originally created so that Recast could add its own
 // custom types to the AST type system (in particular, the File type), but
 // those types are now incorporated into ast-types, so this module doesn't
@@ -114,7 +114,7 @@ __DEFINE__(1581324618454, function(require, module, exports) {
 module.exports = require("ast-types");
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618455, function(require, module, exports) {
+__DEFINE__(1581475919402, function(require, module, exports) {
 var assert = require("assert");
 var types = require("./types");
 var n = types.namedTypes;
@@ -274,8 +274,8 @@ TCp.copy = function(node) {
   return copy;
 };
 
-}, function(modId) { var map = {"./types":1581324618454,"./patcher":1581324618456,"./options":1581324618458,"./lines":1581324618457,"./comments":1581324618462,"./util":1581324618459}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618456, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919401,"./patcher":1581475919403,"./options":1581475919405,"./lines":1581475919404,"./comments":1581475919409,"./util":1581475919406}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919403, function(require, module, exports) {
 var assert = require("assert");
 var linesModule = require("./lines");
 var types = require("./types");
@@ -812,8 +812,8 @@ function findChildReprints(newPath, oldPath, reprints) {
     return true;
 }
 
-}, function(modId) { var map = {"./lines":1581324618457,"./types":1581324618454,"./util":1581324618459,"./fast-path":1581324618461}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618457, function(require, module, exports) {
+}, function(modId) { var map = {"./lines":1581475919404,"./types":1581475919401,"./util":1581475919406,"./fast-path":1581475919408}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919404, function(require, module, exports) {
 var assert = require("assert");
 var sourceMap = require("source-map");
 var normalizeOptions = require("./options").normalize;
@@ -1710,8 +1710,8 @@ Lp.concat = function(other) {
 // Lines.prototype will be fully populated.
 var emptyLines = fromString("");
 
-}, function(modId) { var map = {"./options":1581324618458,"./types":1581324618454,"./util":1581324618459,"./mapping":1581324618460}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618458, function(require, module, exports) {
+}, function(modId) { var map = {"./options":1581475919405,"./types":1581475919401,"./util":1581475919406,"./mapping":1581475919407}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919405, function(require, module, exports) {
 var defaults = {
     // If you want to use a different branch of esprima, or any other
     // module that supports a .parse function, pass that module object to
@@ -1841,7 +1841,7 @@ exports.normalize = function(options) {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618459, function(require, module, exports) {
+__DEFINE__(1581475919406, function(require, module, exports) {
 var assert = require("assert");
 var types = require("./types");
 var getFieldValue = types.getFieldValue;
@@ -2156,8 +2156,8 @@ util.isTrailingCommaEnabled = function(options, context) {
   return !!trailingComma;
 };
 
-}, function(modId) { var map = {"./types":1581324618454}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618460, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919401}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919407, function(require, module, exports) {
 var assert = require("assert");
 var types = require("./types");
 var isString = types.builtInTypes.string;
@@ -2436,8 +2436,8 @@ function skipChars(
     return sourceCursor;
 }
 
-}, function(modId) { var map = {"./types":1581324618454,"./lines":1581324618457,"./util":1581324618459}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618461, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919401,"./lines":1581475919404,"./util":1581475919406}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919408, function(require, module, exports) {
 var assert = require("assert");
 var types = require("./types");
 var n = types.namedTypes;
@@ -2925,8 +2925,8 @@ FPp.firstInStatement = function() {
     return true;
 };
 
-}, function(modId) { var map = {"./types":1581324618454}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618462, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919401}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919409, function(require, module, exports) {
 var assert = require("assert");
 var types = require("./types");
 var n = types.namedTypes;
@@ -3279,8 +3279,8 @@ exports.printComments = function(path, print) {
     return concat(leadingParts);
 };
 
-}, function(modId) { var map = {"./types":1581324618454,"./lines":1581324618457,"./util":1581324618459}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618463, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919401,"./lines":1581475919404,"./util":1581475919406}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919410, function(require, module, exports) {
 var assert = require("assert");
 var sourceMap = require("source-map");
 var printComments = require("./comments").printComments;
@@ -5292,7 +5292,7 @@ function maybeAddSemicolon(lines) {
     return lines;
 }
 
-}, function(modId) { var map = {"./comments":1581324618462,"./lines":1581324618457,"./options":1581324618458,"./patcher":1581324618456,"./types":1581324618454,"./fast-path":1581324618461,"./util":1581324618459}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1581324618453);
+}, function(modId) { var map = {"./comments":1581475919409,"./lines":1581475919404,"./options":1581475919405,"./patcher":1581475919403,"./types":1581475919401,"./fast-path":1581475919408,"./util":1581475919406}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1581475919400);
 })()
 //# sourceMappingURL=index.js.map

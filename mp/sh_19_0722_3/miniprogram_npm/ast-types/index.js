@@ -4,7 +4,7 @@ var __DEFINE__ = function(modId, func, req) { var m = { exports: {} }; __MODS__[
 var __REQUIRE__ = function(modId, source) { if(!__MODS__[modId]) return require(source); if(!__MODS__[modId].status) { var m = { exports: {} }; __MODS__[modId].status = 1; __MODS__[modId].func(__MODS__[modId].req, m, m.exports); if(typeof m.exports === "object") { Object.keys(m.exports).forEach(function(k) { __MODS__[modId].m.exports[k] = m.exports[k]; }); if(m.exports.__esModule) Object.defineProperty(__MODS__[modId].m.exports, "__esModule", { value: true }); } else { __MODS__[modId].m.exports = m.exports; } } return __MODS__[modId].m.exports; };
 var __REQUIRE_WILDCARD__ = function(obj) { if(obj && obj.__esModule) { return obj; } else { var newObj = {}; if(obj != null) { for(var k in obj) { if (Object.prototype.hasOwnProperty.call(obj, k)) newObj[k] = obj[k]; } } newObj.default = obj; return newObj; } };
 var __REQUIRE_DEFAULT__ = function(obj) { return obj && obj.__esModule ? obj.default : obj; };
-__DEFINE__(1581324618340, function(require, module, exports) {
+__DEFINE__(1581475919286, function(require, module, exports) {
 module.exports = require('./fork')([
     // This core module of AST types captures ES5 as it is parsed today by
     // git://github.com/ariya/esprima.git#master.
@@ -23,8 +23,8 @@ module.exports = require('./fork')([
     require("./def/babel6")
 ]);
 
-}, function(modId) {var map = {"./fork":1581324618341,"./def/core":1581324618348,"./def/es6":1581324618350,"./def/es7":1581324618351,"./def/mozilla":1581324618352,"./def/e4x":1581324618353,"./def/jsx":1581324618354,"./def/flow":1581324618355,"./def/esprima":1581324618356,"./def/babel":1581324618357,"./def/babel6":1581324618358}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618341, function(require, module, exports) {
+}, function(modId) {var map = {"./fork":1581475919287,"./def/core":1581475919294,"./def/es6":1581475919296,"./def/es7":1581475919297,"./def/mozilla":1581475919298,"./def/e4x":1581475919299,"./def/jsx":1581475919300,"./def/flow":1581475919301,"./def/esprima":1581475919302,"./def/babel":1581475919303,"./def/babel6":1581475919304}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919287, function(require, module, exports) {
 module.exports = function (defs) {
     var used = [];
     var usedResult = [];
@@ -71,8 +71,8 @@ module.exports = function (defs) {
 
     return exports;
 };
-}, function(modId) { var map = {"./lib/types":1581324618342,"./lib/equiv":1581324618343,"./lib/path":1581324618344,"./lib/node-path":1581324618345,"./lib/path-visitor":1581324618347}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618342, function(require, module, exports) {
+}, function(modId) { var map = {"./lib/types":1581475919288,"./lib/equiv":1581475919289,"./lib/path":1581475919290,"./lib/node-path":1581475919291,"./lib/path-visitor":1581475919293}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919288, function(require, module, exports) {
 var Ap = Array.prototype;
 var slice = Ap.slice;
 var map = Ap.map;
@@ -910,7 +910,7 @@ module.exports = function () {
 };
 
 }, function(modId) { var map = {}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618343, function(require, module, exports) {
+__DEFINE__(1581475919289, function(require, module, exports) {
 module.exports = function (fork) {
     var types = fork.use(require('../lib/types'));
     var getFieldNames = types.getFieldNames;
@@ -1098,8 +1098,8 @@ module.exports = function (fork) {
     return astNodesAreEquivalent;
 };
 
-}, function(modId) { var map = {"../lib/types":1581324618342}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618344, function(require, module, exports) {
+}, function(modId) { var map = {"../lib/types":1581475919288}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919290, function(require, module, exports) {
 var Ap = Array.prototype;
 var slice = Ap.slice;
 var map = Ap.map;
@@ -1470,8 +1470,8 @@ module.exports = function (fork) {
     return Path;
 };
 
-}, function(modId) { var map = {"./types":1581324618342}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618345, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919288}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919291, function(require, module, exports) {
 module.exports = function (fork) {
     var types = fork.use(require("./types"));
     var n = types.namedTypes;
@@ -1949,8 +1949,8 @@ module.exports = function (fork) {
     return NodePath;
 };
 
-}, function(modId) { var map = {"./types":1581324618342,"./path":1581324618344,"./scope":1581324618346}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618346, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919288,"./path":1581475919290,"./scope":1581475919292}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919292, function(require, module, exports) {
 var hasOwn = Object.prototype.hasOwnProperty;
 
 module.exports = function (fork) {
@@ -2303,8 +2303,8 @@ module.exports = function (fork) {
     return Scope;
 };
 
-}, function(modId) { var map = {"./types":1581324618342,"./node-path":1581324618345}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618347, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919288,"./node-path":1581475919291}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919293, function(require, module, exports) {
 var hasOwn = Object.prototype.hasOwnProperty;
 
 module.exports = function (fork) {
@@ -2728,8 +2728,8 @@ module.exports = function (fork) {
     return PathVisitor;
 };
 
-}, function(modId) { var map = {"./types":1581324618342,"./node-path":1581324618345}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618348, function(require, module, exports) {
+}, function(modId) { var map = {"./types":1581475919288,"./node-path":1581475919291}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919294, function(require, module, exports) {
 module.exports = function (fork) {
     var types = fork.use(require("../lib/types"));
     var Type = types.Type;
@@ -3100,8 +3100,8 @@ module.exports = function (fork) {
         .field("leading", Boolean, defaults["true"])
         .field("trailing", Boolean, defaults["false"]);
 };
-}, function(modId) { var map = {"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618349, function(require, module, exports) {
+}, function(modId) { var map = {"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919295, function(require, module, exports) {
 module.exports = function (fork) {
     var exports = {};
     var types = fork.use(require("../lib/types"));
@@ -3148,8 +3148,8 @@ module.exports = function (fork) {
 
     return exports;
 };
-}, function(modId) { var map = {"../lib/types":1581324618342}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618350, function(require, module, exports) {
+}, function(modId) { var map = {"../lib/types":1581475919288}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919296, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require("./core"));
     var types = fork.use(require("../lib/types"));
@@ -3370,8 +3370,8 @@ module.exports = function (fork) {
       .field("tail", Boolean);
 };
 
-}, function(modId) { var map = {"./core":1581324618348,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618351, function(require, module, exports) {
+}, function(modId) { var map = {"./core":1581475919294,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919297, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require('./es6'));
 
@@ -3410,8 +3410,8 @@ module.exports = function (fork) {
       .field("argument", or(def("Expression"), null))
       .field("all", Boolean, defaults["false"]);
 };
-}, function(modId) { var map = {"./es6":1581324618350,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618352, function(require, module, exports) {
+}, function(modId) { var map = {"./es6":1581475919296,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919298, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require("./core"));
     var types = fork.use(require("../lib/types"));
@@ -3463,8 +3463,8 @@ module.exports = function (fork) {
         .build("index")
         .field("index", geq(0));
 };
-}, function(modId) { var map = {"./core":1581324618348,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618353, function(require, module, exports) {
+}, function(modId) { var map = {"./core":1581475919294,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919299, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require("./core"));
     var types = fork.use(require("../lib/types"));
@@ -3551,8 +3551,8 @@ module.exports = function (fork) {
         .field("target", String)
         .field("contents", or(String, null));
 };
-}, function(modId) { var map = {"./core":1581324618348,"../lib/types":1581324618342}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618354, function(require, module, exports) {
+}, function(modId) { var map = {"./core":1581475919294,"../lib/types":1581475919288}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919300, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require("./es7"));
 
@@ -3656,8 +3656,8 @@ module.exports = function (fork) {
     def("JSXEmptyExpression").bases("Expression").build();
 
 };
-}, function(modId) { var map = {"./es7":1581324618351,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618355, function(require, module, exports) {
+}, function(modId) { var map = {"./es7":1581475919297,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919301, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require("./es7"));
 
@@ -3988,8 +3988,8 @@ module.exports = function (fork) {
       ), defaults["null"]);
 };
 
-}, function(modId) { var map = {"./es7":1581324618351,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618356, function(require, module, exports) {
+}, function(modId) { var map = {"./es7":1581475919297,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919302, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require("./es7"));
 
@@ -4094,8 +4094,8 @@ module.exports = function (fork) {
       .bases("Comment")
       .build("value", /*optional:*/ "leading", "trailing");
 };
-}, function(modId) { var map = {"./es7":1581324618351,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618357, function(require, module, exports) {
+}, function(modId) { var map = {"./es7":1581475919297,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919303, function(require, module, exports) {
 module.exports = function (fork) {
     fork.use(require("./es7"));
 
@@ -4203,8 +4203,8 @@ module.exports = function (fork) {
         .bases("Comment")
         .build("value", /*optional:*/ "leading", "trailing");
 };
-}, function(modId) { var map = {"./es7":1581324618351,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-__DEFINE__(1581324618358, function(require, module, exports) {
+}, function(modId) { var map = {"./es7":1581475919297,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+__DEFINE__(1581475919304, function(require, module, exports) {
 module.exports = function (fork) {
   fork.use(require("./babel"));
   fork.use(require("./flow"));
@@ -4371,7 +4371,7 @@ module.exports = function (fork) {
     .build();
 };
 
-}, function(modId) { var map = {"./babel":1581324618357,"./flow":1581324618355,"../lib/types":1581324618342,"../lib/shared":1581324618349}; return __REQUIRE__(map[modId], modId); })
-return __REQUIRE__(1581324618340);
+}, function(modId) { var map = {"./babel":1581475919303,"./flow":1581475919301,"../lib/types":1581475919288,"../lib/shared":1581475919295}; return __REQUIRE__(map[modId], modId); })
+return __REQUIRE__(1581475919286);
 })()
 //# sourceMappingURL=index.js.map

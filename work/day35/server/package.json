@@ -1,0 +1,30 @@
+{
+  "name": "01_koa2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./app/index.js",
+    "start": "cross-env NODE_ENV=production node ./app/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "basic-auth": "^2.0.1",
+    "bcryptjs": "^2.4.3",
+    "damulaopzdy3": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.11.0",
+    "koa-body": "^3.0.0",
+    "koa-json-error": "^3.1.2",
+    "koa-parameter": "^3.0.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.8.6",
+    "require-directory": "^2.1.1"
+  }
+}

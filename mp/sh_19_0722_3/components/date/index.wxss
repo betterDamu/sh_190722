@@ -1,0 +1,31 @@
+/* components/date/index.wxss */
+.date-wrap{
+  height: 60rpx;
+  display: inline-flex;
+}
+
+.right{
+  display: flex;
+  align-items: baseline;
+  
+}
+.right .NO{font-size:32rpx;color: black;}
+.right .index{
+  font-size:60rpx;
+  line-height: 60rpx;
+  font-weight: 800;
+  margin-right: 14rpx;
+  color: black;
+}
+.right .line{
+  width: 2rpx;
+  height: 46rpx;
+  background: black;
+}
+
+.left{
+   display: flex;
+   flex-direction: column;
+   margin-left: 15rpx;
+   align-items: center;
+}

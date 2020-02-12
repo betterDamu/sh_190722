@@ -1,0 +1,12 @@
+<!--components/date/index.wxml-->
+<view class='date-wrap'>
+    <view class='right'>
+      <text class='NO'>NO.</text>
+      <text class='index'>{{index}}</text>
+      <text class='line'></text>
+    </view>
+    <view class='left'>
+      <text>{{month}}</text>
+      <text>{{year}}</text>
+    </view>
+</view>

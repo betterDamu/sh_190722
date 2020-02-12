@@ -1,2 +1,15 @@
 <!--pages/journals/journals.wxml-->
-<text>pages/journals/journals.wxml</text>
+<view class='journals-wrap'>
+  <view class='journals-header'>
+    <v-date index="{{journal.index<10?'0'+journal.index:journal.index}}"></v-date>
+    <view class='open'>
+      <v-favs bind:like="handleLike" favs="{{journal.favs}}" isLike="{{isLike}}"></v-favs>
+    <button class='share' open-type="share" plain="true">
+      <image src="./img/share.png"></image>
+    </button>
+    </view>
+  </view>
+  <image class='journals-img' wx:if="{{journal.image}}" src="{{imgUrl + journal.image}}"></image>
+  <image class="tag" src="./img/sentence@tag.png"></image>
+  <text class='content'>{{journal.content}}</text>
+</view>
