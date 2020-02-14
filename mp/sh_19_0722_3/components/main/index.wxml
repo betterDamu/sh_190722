@@ -1,0 +1,3 @@
+<image class='journals-img {{music}}' wx:if="{{image}}" src="{{imgUrl + image}}"></image>
+<slot></slot>
+<text class='content'>{{content}}</text>

@@ -19,5 +19,13 @@ export default{
   likeJournals:"/wx_users/journalsLikes",
   //拿实时的疫情的信息
   getInfoForepidemic:"/api?version=epidemic&appid=45521934&appsecret=Bhove2gJ",
-  getStats:"/api/stats"
+  getStats:"/api/stats",
+  //找下一期的期刊 8--->9
+  getNext(index){
+    return `/wx_journals/${index}/next`
+  },
+  //找上一期的期刊 8--->7
+  getPre(index){
+    return `/wx_journals/${index}/pre`
+  }
 }

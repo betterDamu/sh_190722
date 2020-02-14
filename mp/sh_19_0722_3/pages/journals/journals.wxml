@@ -1,5 +1,6 @@
 <!--pages/journals/journals.wxml-->
 <view class='journals-wrap'>
+  <!-- 头部 -->
   <view class='journals-header'>
     <v-date index="{{journal.index<10?'0'+journal.index:journal.index}}"></v-date>
     <view class='open'>
@@ -9,7 +10,18 @@
     </button>
     </view>
   </view>
-  <image class='journals-img' wx:if="{{journal.image}}" src="{{imgUrl + journal.image}}"></image>
-  <image class="tag" src="./img/sentence@tag.png"></image>
-  <text class='content'>{{journal.content}}</text>
+  <!-- 主体 -->
+  <v-main class="main" music="{{journal.type === 200?'music':''}}" image="{{journal.image}}" imgUrl="{{imgUrl}}" content="{{journal.content}}">
+      <image class="tag" wx:if="{{journal.type === 300}}" src="./img/sentence@tag.png"></image>
+      <image class="tag" wx:if="{{journal.type === 200}}" src="./img/music@tag.png"></image>
+      <image class="tag" wx:if="{{journal.type === 100}}" src="./img/movie@tag.png"></image>
+  </v-main>
+  <!-- 导航 -->
+  <v-nav 
+    bind:onLeft="onLeft"
+    bind:onRight="onRight"
+    isEnd="{{isEnd}}"
+    isFirst="{{isFirst}}"
+    title="{{journal.title}}"
+    class="nav"></v-nav> 
 </view>

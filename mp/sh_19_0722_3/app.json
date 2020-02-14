@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/wuhan/index",
     "pages/journals/journals",
+    "pages/wuhan/index",
     "pages/movies/movies",
     "pages/atguigu/index",
     "pages/atguigu/detail/index",
@@ -17,6 +17,12 @@
   },
   "tabBar": {
     "list": [
+      {
+        "pagePath": "pages/journals/journals",
+        "text": "硅谷期刊",
+        "iconPath": "pages/journals/img/journal.png",
+        "selectedIconPath": "pages/journals/img/journal@highlight.png"
+      },
       {
         "pagePath": "pages/wuhan/index",
         "text": "全民抗疫",
@@ -34,12 +40,6 @@
         "text": "硅谷主页",
         "iconPath": "pages/movies/img/atguigu.png",
         "selectedIconPath": "pages/movies/img/atguigu-hover.png"
-      },
-      {
-        "pagePath": "pages/journals/journals",
-        "text": "硅谷期刊",
-        "iconPath": "pages/journals/img/journal.png",
-        "selectedIconPath": "pages/journals/img/journal@highlight.png"
       }
     ],
     "color": "#000000",

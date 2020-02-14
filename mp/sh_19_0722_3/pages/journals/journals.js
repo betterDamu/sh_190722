@@ -8,26 +8,30 @@ Page({
   data: {
     imgUrl: config.env[config.model].imgUrl,
     journal:{},
-    isLike:false
+    isLike:false,
+    isEnd:true,
+    isFirst:false
   },
-  onShareAppMessage(){
-    return {
-      title:"0722小程序",
-      path:"/pages/journals/journals"
-    }
+  //向左按钮的点击
+  async onLeft() { 
+    //找下一期
+    if (this.data.isEnd) return;
+    const data = await http.get(api.getNext(this.data.journal.index))
+    this.handleData(data)
   },
+  //向右按钮的点击
+  async onRight() { 
+    //找上一期
+    if (this.data.isFirst) return;
+    const data = await http.get(api.getPre(this.data.journal.index))
+    this.handleData(data)
+  },
+  //page初始化的生命周期函数
   async onLoad(){
     //发送请求获取最新一期期刊的信息
     const data = await http.get(api.getLatest);
-    this.setData({
-      journal: {
-        ...data.journal_id,
-        index: data.index,
-        favs: data.favs,
-        journalId:data._id
-      }
-    })
-
+    this.handleData(data)
+  
     //判断一下当前用户是否给对应的期刊点过赞
     const likes = await http.get(api.likeJournals,{},{
       header: {
@@ -48,6 +52,7 @@ Page({
     })
 
   },
+  //点赞
   async handleLike(ev){
     if (ev.detail.likeFlag === "like"){
         //点赞
@@ -73,14 +78,40 @@ Page({
       })
     }
   },
-  // basicAuth认证:
-  // 客户端传递 （"Basic dhakhdaskjhdaskjhdkajshdkjashdkasjhdsakjhdkasj"）
-  //   1. authorization : name:password
-  //   2. 进行base64编码  base64(`name: password`)
-  //   3. 使用 "Basic空格"进行拼接
+  //左上角系统分享的
+  onShareAppMessage() {
+    return {
+      title: "0722小程序",
+      path: "/pages/journals/journals"
+    }
+  },
+  //获取token
   getToken(){
     const token = store.getItem("token","userInfo");
     return "Basic " + Base64.encode(`${token}:`)
+  },
+  //在初始化 向左 向右按钮点击时 对请求回来的数据做统一处理
+  handleData(data){
+    this.setData({
+      journal:{
+        ...data.journal_id,
+        index:data.index,
+        favs:data.favs,
+        journalId:data._id,
+        type: data.type
+      },
+      isEnd: true,
+      isEnd: this.isEnd(data.index),
+      isFirst: this.isFirst(data.index)
+    })
+  },
+  //判断当前这一期是否是第一期
+  isFirst(index){
+    return index.toString() === "1";
+  },
+  //判断当前这一期是否是最新一期
+  isEnd(index) {
+    return index.toString() === "8";
   }
 })
 

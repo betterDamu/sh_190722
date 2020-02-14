@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "v-date":"/components/date/index",
-    "v-favs":"/components/favs/index"
+    "v-favs":"/components/favs/index",
+    "v-nav":"/components/nav/index",
+    "v-main":"/components/main/index"
   },
   "navigationBarTitleText": "硅谷期刊"
 }

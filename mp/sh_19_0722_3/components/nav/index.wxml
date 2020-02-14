@@ -1,0 +1,6 @@
+<!--components/nav/index.wxml-->
+<view class='nav_wrap'>
+  <image bind:tap="onLeft" class='icon' src="{{isEnd?disLeftUrl:leftUrl}}"></image>
+  <text class='title'>{{title}}</text>
+  <image bind:tap="onRight" class='icon' src="{{isFirst?disRightUrl:rightUrl}}"></image>
+</view>

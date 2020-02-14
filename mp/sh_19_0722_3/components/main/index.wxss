@@ -1,0 +1,16 @@
+.journals-img{
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.music{
+  width: 422rpx;
+  height: 422rpx;
+  margin-top: 60rpx;
+  border-radius: 50%;
+}
+
+.content{
+  font-size: 36rpx;
+  max-width: 550rpx;
+}
