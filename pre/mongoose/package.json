@@ -19,7 +19,7 @@
     "koa-jwt": "^3.6.0",
     "koa-parameter": "^3.0.1",
     "koa-router": "^7.4.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mongoose": "^5.8.6"
   }
 }
